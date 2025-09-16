@@ -1,0 +1,79 @@
+.tier {
+    height: 90px;
+    border-radius: 13px;
+    display: flex;
+    margin-top: 4px;
+}
+
+.sign {
+    height: 90px;
+    width: 145px;
+    border-radius: 13px;
+    color: white;
+    display: flex; /* inline flex?? */
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-family: "Inter", sans-serif;
+    border: solid black 2px;
+}
+
+.tier-drop-zone {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#s-tier-sign {
+    background-color: #DB5151;
+}
+#a-tier-sign {
+    background-color: #DB8A51;
+}
+#b-tier-sign {
+    background-color: #DBC051;
+}
+#c-tier-sign {
+    background-color: #76DB51;
+}
+#f-tier-sign {
+    background-color: #51D2DB;
+}
+
+#music-holder {
+    height: 100%;
+    margin-top: 50px;
+    margin-left: 15px;
+    display: flex;
+}
+
+.music-element {
+    position: relative;
+    width: 85px;
+    height: 85px;
+    border-radius: 13px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-element:before {
+    content: '';
+    position: absolute;
+    background-image: url("images/graduation.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 13px;
+    opacity: 0.80;
+}
+
+.music-element p {
+    position: relative;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    text-align: center;
+}

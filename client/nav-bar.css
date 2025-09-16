@@ -1,0 +1,111 @@
+#nav-bar {
+    position: relative;
+    top: 3px;
+    height: 50px;
+}
+
+
+#nav-bar-background {
+    /* absolute position to allow stacking elements on top without extra blur */
+    position: absolute;
+    background-color: black;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 41px;
+    border-radius: 9px;
+    filter: blur(11px);
+    opacity:75%;
+    z-index: 0;
+}
+
+/* normal flow elements should be positioned relative to background. calculate left position of absolute element and then
+   position based on that */
+
+#nav-content {
+    padding-top: 1.5px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    width: 95%;
+    flex-direction: row;
+    align-items: center;
+}
+
+#nav-logo {
+    position: inline-block;
+    z-index: 1;
+    margin-left: 2%;
+    display: flex;
+}
+
+#logo {
+    position: relative;
+    z-index: 1;
+    width: 45px;
+    margin-left: 2%;
+}
+
+#nav-search {
+    color: #B9B4BB;
+    position: relative;
+    background-color: transparent;
+    z-index: 1;
+    opacity: 69%;
+    border-radius: 15px;
+    border: solid #B9B4BB 2px;
+    margin-left: 2.5%;
+    min-width: 225px;
+    caret-color: #B9B4BB;
+    padding: 0px 0px 0px 5px;
+}
+
+#nav-search:hover {
+    opacity: 90%;
+}
+
+#nav-contact {
+    position: relative;
+    margin-left: 52%;
+}
+
+#nav-games {
+    position: relative;
+    margin-left: 5%;
+}
+
+#nav-profile {
+    position: relative;
+    margin-left: 5%;
+    width: 32px;
+    height: 32px;
+    border: solid 2px black;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+}
+
+#nav-profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.text-link {
+    color: white;
+    z-index: 1;
+    opacity: 75%;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.8px;
+    font-weight: lighter;
+    font-size: 18px;
+    text-shadow: 1px 1px grey;
+}
+
+.text-link:hover {
+    opacity: 90%;
+}
+
+
+
