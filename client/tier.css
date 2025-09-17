@@ -25,6 +25,10 @@
     align-items: center;
 }
 
+.tier-glow {
+    border: solid red 2px;
+}
+
 #s-tier-sign {
     background-color: #DB5151;
 }
@@ -77,3 +81,7 @@
     font-weight: bold;
     text-align: center;
 }
+
+/* .element-outline {
+    border: 1px solid white;
+} */
