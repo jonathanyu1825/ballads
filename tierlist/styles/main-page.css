@@ -70,3 +70,8 @@
     right: 25px;
     padding: 0px 0px 0px 5px;
 }
+
+#main-page-nav-search.expanded {
+    width: 200px;
+    height: 200px;
+}

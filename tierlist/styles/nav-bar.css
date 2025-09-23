@@ -74,11 +74,12 @@
 }
 
 #nav-profile {
+    /* shrinking because of flexbox, can set flex shrink to 0 or find other solution */
     position: relative;
     margin-left: 5%;
     width: 32px;
     height: 32px;
-    border: solid 2px black;
+    border: solid black 2px;
     border-radius: 50%;
     background-color: white;
     overflow: hidden;

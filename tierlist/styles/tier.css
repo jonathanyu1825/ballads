@@ -1,3 +1,6 @@
+/* MAKE + SIGN A CHILD OF ITS CONTAINER */
+
+
 .tier {
     height: 90px;
     border-radius: 13px;
@@ -15,7 +18,27 @@
     justify-content: center;
     font-size: 35px;
     font-family: "Inter", sans-serif;
-    border: solid black 2px;
+    margin-left: 20px;
+}
+
+.sign:hover .add-tier {
+    opacity: 100%;
+}
+
+.add-tier {
+    position: absolute;
+    margin-top: 90px;
+    opacity: 0%;
+    color: white;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: #5cbd6e;
+    cursor: default;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tier-drop-zone {
@@ -23,6 +46,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    margin-left: 3px;
 }
 
 .tier-glow {
@@ -61,12 +85,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: grab;
 }
 
 .music-element:before {
     content: '';
     position: absolute;
-    background-image: url("images/graduation.jpg");
+    background-image: url("../images/graduation.jpg");
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -81,6 +106,8 @@
     font-weight: bold;
     text-align: center;
 }
+
+
 
 /* .element-outline {
     border: 1px solid white;

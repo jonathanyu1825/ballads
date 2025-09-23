@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/nav-bar.css" />
+    <link rel="stylesheet" href="styles/main-page.css" />
+    <link rel="stylesheet" href="styles/tier.css" />
+    <script type = "module" src="scripts/script.js"></script>
+  </head>
+  <body>
+    <div id="nav-bar">
+      <div id="nav-bar-background"></div>
+      <div id="nav-content">
+        <a id="nav-logo" href="https://www.ballads.live">
+          <img
+            id="logo"
+            src="images/ballads_logo.png"
+            href="https://www.ballads.live"
+          />
+        </a>
+        <input id="nav-search" type="text" />
+        <a class="text-link" id="nav-contact" href="https://www.google.com">
+          contact
+        </a>
+        <a class="text-link" id="nav-games" href="https://www.google.com">
+          games
+        </a>
+        <div id="nav-profile">
+          <img id = "nav-profile-pic" src = "images/kendrick-profile.jpeg"
+        </div>
+      </div>
+    </div>
+    <div id="main-page">
+      <div id="main-page-background"></div>
+      <div id="main-page-content">
+        <div id="main-page-nav-bar">
+          <p id="main-page-title"><b> TierMaker </b></p>
+          <p id="add-title" contenteditable="True">add a title</p>
+          <input
+            id="main-page-nav-search"
+            type="text"
+            placeholder="search for music to add"
+          />
+        </div>
+        <div id = "tier-holder">
+          <div id="s-tier" class="tier">
+            <div id="s-tier-sign" class="sign" contenteditable="True">
+              S
+              <div class="add-tier" contenteditable="false">+</div>
+            </div>
+            <div class="tier-drop-zone"></div>
+          </div>
+          <div id="a-tier" class="tier">
+            <div id="a-tier-sign" class="sign" contenteditable="True">
+              A
+              <div class="add-tier" contenteditable="false">+</div>
+            </div>
+            <div class="tier-drop-zone"></div>
+          </div>
+          <div id="b-tier" class="tier">
+            <div id="b-tier-sign" class="sign" contenteditable="True">
+              B
+              <div class="add-tier" contenteditable="false">+</div>
+            </div>
+            <div class="tier-drop-zone"></div>
+          </div>
+          <div id="c-tier" class="tier">
+            <div id="c-tier-sign" class="sign" contenteditable="True">
+              C
+              <div class="add-tier" contenteditable="false">+</div>
+            </div>
+            <div class="tier-drop-zone"></div>
+          </div>
+          <div id="f-tier" class="tier">
+            <div id="f-tier-sign" class="sign" contenteditable="True">
+              F
+              <div class="add-tier" contenteditable="false">+</div>
+            </div>
+            <div class="tier-drop-zone"></div>
+          </div>
+        </div>
+        <div id="music-holder">
+          <div class="music-element" id="good-morning" draggable="true">
+            <p>Good Morning</p>
+          </div>
+          <div class="music-element" id="champion" draggable="true">
+            <p>Champion</p>
+          </div>
+          <div class="music-element" id="stronger" draggable="true">
+            <p>Stronger</p>
+          </div>
+          <div class="music-element" id="i-wonder" draggable="true">
+            <p>I Wonder</p>
+          </div>
+          <div
+            class="music-element"
+            id="can't-tell-me-nothing"
+            draggable="true"
+          >
+            <p>Can't Tell Me Nothing</p>
+          </div>
+          <div class="music-element" id="barry-bonds" draggable="true">
+            <p>Barry Bonds</p>
+          </div>
+          <div class="music-element" id="drunk-and-hot-girls" draggable="true">
+            <p>Drunk and Hot Girls</p>
+          </div>
+          <div class="music-element" id="flashing-lights" draggable="true">
+            <p>Flashing Lights</p>
+          </div>
+          <div class="music-element" id="everything-i-am" draggable="true">
+            <p>Everything I Am</p>
+          </div>
+          <div class="music-element" id="the-glory" draggable="true">
+            <p>The Glory</p>
+          </div>
+          <div class="music-element" id="homecoming" draggable="true">
+            <p>Homecoming</p>
+          </div>
+          <div class="music-element" id="big-brother" draggable="true">
+            <p>Big Brother</p>
+          </div>
+
+          <!-- <div class = "music-element" id = "dark-fantasy" draggable = "true"> <p>Dark Fantasy</p> </div>
+          <div class = "music-element" id = "gorgeous" draggable = "true"> <p>Gorgeous</p> </div>
+          <div class = "music-element" id = "power" draggable = "true"> <p>Power</p> </div>
+          <div class = "music-element" id = "all-of-the-lights-interlude" draggable = "true"> <p>All Of The Lights (Interlude)</p> </div>
+          <div class = "music-element" id = "all-of-the-lights" draggable = "true"> <p>All Of The Lights</p> </div>
+          <div class = "music-element" id = "monster" draggable = "true"> <p>Monster</p> </div>
+          <div class = "music-element" id = "so-appalled" draggable = "true"> <p>So Appalled</p> </div>
+          <div class = "music-element" id = "devil-in-a-new-dress" draggable = "true"> <p>Devil In A New Dress</p> </div>
+          <div class = "music-element" id = "runaway" draggable = "true"> <p>Runaway</p> </div>
+          <div class = "music-element" id = "hell-of-a-life" draggable = "true"> <p>Hell Of A Life</p> </div>
+          <div class = "music-element" id = "blame-game" draggable = "true"> <p>Blame Game</p> </div>
+          <div class = "music-element" id = "lost-in-the-world" draggable = "true"> <p>Lost In The World</p> </div>
+          <div class = "music-element" id = "who-will-survive-in-america" draggable = "true"> <p>Who Will Survive In America</p> </div> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
