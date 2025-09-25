@@ -1,30 +1,48 @@
 import { setUpMusicDragDrop } from './dragDrop.js';
 import { setUpTierDragDrop } from './dragDrop.js';
+import { addNewTier } from './dragDrop.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   setUpMusicDragDrop();
   setUpTierDragDrop();
+  addNewTier();
 
-  // tierHolder.addEventListener("click", (event) => {
-  //   if (event.target.classList.contains("add-tier")) {
-  //     createTier();
-  //   }
-  // });
+  function createTier() {
+    const newTier = document.createElement("div");
+  }
 
-  // function createTier() {
-  //   const newTier = document.createElement("div");
-  // }
-
-  let searchBar = document.getElementById("main-page-nav-search");
-  // figure out promises
-  // add event listener
+  let searchBarContainer = document.getElementById("main-page-nav-search");
+  let searchBar = document.getElementById("main-page-search");
   
-  searchBar.addEventListener("keydown", (event) => {
+  let testResult = document.getElementById("test-result");
+  searchBarContainer.addEventListener("keydown", async (event) => {
     if (event.key == "Enter") {
       let userSearch = searchBar.value;
+      searchBarContainer.classList.add("expanded");
+      try {
+        // const results = await performSearch(userSearch);
+        let topResults = results.albums.items;
+        console.log(topResults);
+        for (let i = 0; i < 1; i++) {
+          let picture = topResults[0].images[0].url;
+          testResult.src = picture;
+          // what do we need?
 
-      performSearch(userSearch);
-      searchBar.classList.add("expanded");
+          // picture
+          // name
+          // artist
+
+        }
+      } catch {
+        console.error("Error");
+      }
+    }
+  });
+
+  const mainPage = document.getElementById("main-page");
+  mainPage.addEventListener("click", (event) => {
+    if (searchBar.classList.contains("expanded") && event.target.id != "main-page-nav-search") {
+      searchBar.classList.remove("expanded");
     }
   });
 
@@ -36,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(`Response status: ${response.status}`);
       }
       const result = await response.json();
-      console.log(result);
+      return result;
     } catch (error) {
       console.error(error.message);
     }

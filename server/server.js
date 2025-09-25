@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 
 const clientID = "bc152b06b1154fa7971dddbfb0307c21";
 const clientSecret = "8c915fb2b394463aacda06509bfa04f5";
-const accessToken = "BQBF_dORLxS3FsNT9jCJWMNjBgrEMV8qtccPnQuXaAPKd5LbAA8CIkNFzTBkxJPkxuC-V1vukW6S0K0y3MKNzP3LQiGq1vs6mhwIos6O4yLpUf6sP_Lc-fMvAyg8zwfSSW9z5XX7Jms";
+const accessToken = "BQDlWX4G4ZfK0QWXSZG_dw4h91NzpyRKMgypRpbQveC4qyXnSyexTMHCT3s8c2YNMvCXGhe_H973S0e66FPuckHQydAIPDcxnhvzaCpxk9gdzsmoDOPIcjdE2qk9RBpMggbc10EISyQ";
 
 async function getSpotifyToken(clientID, clientSecret) {
   try {
@@ -66,6 +66,7 @@ async function searchSpotify(query) {
 
 app.get("/api/search/:query", async (req, res) => {
   const searchQuery = req.params.query;
+  console.log(searchQuery);
   const results = await searchSpotify(searchQuery);
   console.log(results);
   res.json(results);

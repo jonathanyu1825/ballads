@@ -83,6 +83,7 @@
     border-radius: 50%;
     background-color: white;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 #nav-profile-pic {

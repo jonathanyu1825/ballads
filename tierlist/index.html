@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/nav-bar.css" />
     <link rel="stylesheet" href="styles/main-page.css" />
     <link rel="stylesheet" href="styles/tier.css" />
-    <script type = "module" src="scripts/script.js"></script>
+    <script type="module" src="scripts/script.js"></script>
   </head>
   <body>
     <div id="nav-bar">
@@ -36,7 +36,7 @@
           games
         </a>
         <div id="nav-profile">
-          <img id = "nav-profile-pic" src = "images/kendrick-profile.jpeg"
+          <img id = "nav-profile-pic" src = "images/kendrick-profile.jpeg" />
         </div>
       </div>
     </div>
@@ -46,13 +46,26 @@
         <div id="main-page-nav-bar">
           <p id="main-page-title"><b> TierMaker </b></p>
           <p id="add-title" contenteditable="True">add a title</p>
-          <input
-            id="main-page-nav-search"
-            type="text"
-            placeholder="search for music to add"
-          />
+
+          <div id="main-page-nav-search">
+            <input
+              id="main-page-search"
+              type="text"
+              placeholder="search for music to add"
+            />
+            <div class="search-result">
+              <img id="test-result" src="images/mbdtf.jpg" />
+              <div class = "name-result">
+                <p id = "name1"> Runaway </p>
+                <p id = "name2"> Kanye West </p>
+              </div>
+              <div class = "add-result">
+                <div> + </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id = "tier-holder">
+        <div id="tier-holder">
           <div id="s-tier" class="tier">
             <div id="s-tier-sign" class="sign" contenteditable="True">
               S
@@ -131,19 +144,53 @@
             <p>Big Brother</p>
           </div>
 
-          <!-- <div class = "music-element" id = "dark-fantasy" draggable = "true"> <p>Dark Fantasy</p> </div>
-          <div class = "music-element" id = "gorgeous" draggable = "true"> <p>Gorgeous</p> </div>
-          <div class = "music-element" id = "power" draggable = "true"> <p>Power</p> </div>
-          <div class = "music-element" id = "all-of-the-lights-interlude" draggable = "true"> <p>All Of The Lights (Interlude)</p> </div>
-          <div class = "music-element" id = "all-of-the-lights" draggable = "true"> <p>All Of The Lights</p> </div>
-          <div class = "music-element" id = "monster" draggable = "true"> <p>Monster</p> </div>
-          <div class = "music-element" id = "so-appalled" draggable = "true"> <p>So Appalled</p> </div>
-          <div class = "music-element" id = "devil-in-a-new-dress" draggable = "true"> <p>Devil In A New Dress</p> </div>
-          <div class = "music-element" id = "runaway" draggable = "true"> <p>Runaway</p> </div>
-          <div class = "music-element" id = "hell-of-a-life" draggable = "true"> <p>Hell Of A Life</p> </div>
-          <div class = "music-element" id = "blame-game" draggable = "true"> <p>Blame Game</p> </div>
-          <div class = "music-element" id = "lost-in-the-world" draggable = "true"> <p>Lost In The World</p> </div>
-          <div class = "music-element" id = "who-will-survive-in-america" draggable = "true"> <p>Who Will Survive In America</p> </div> -->
+          <div class="music-element" id="dark-fantasy" draggable="true">
+            <p>Dark Fantasy</p>
+          </div>
+          <div class="music-element" id="gorgeous" draggable="true">
+            <p>Gorgeous</p>
+          </div>
+          <div class="music-element" id="power" draggable="true">
+            <p>Power</p>
+          </div>
+          <div
+            class="music-element"
+            id="all-of-the-lights-interlude"
+            draggable="true"
+          >
+            <p>All Of The Lights (Interlude)</p>
+          </div>
+          <div class="music-element" id="all-of-the-lights" draggable="true">
+            <p>All Of The Lights</p>
+          </div>
+          <div class="music-element" id="monster" draggable="true">
+            <p>Monster</p>
+          </div>
+          <div class="music-element" id="so-appalled" draggable="true">
+            <p>So Appalled</p>
+          </div>
+          <div class="music-element" id="devil-in-a-new-dress" draggable="true">
+            <p>Devil In A New Dress</p>
+          </div>
+          <div class="music-element" id="runaway" draggable="true">
+            <p>Runaway</p>
+          </div>
+          <div class="music-element" id="hell-of-a-life" draggable="true">
+            <p>Hell Of A Life</p>
+          </div>
+          <div class="music-element" id="blame-game" draggable="true">
+            <p>Blame Game</p>
+          </div>
+          <div class="music-element" id="lost-in-the-world" draggable="true">
+            <p>Lost In The World</p>
+          </div>
+          <div
+            class="music-element"
+            id="who-will-survive-in-america"
+            draggable="true"
+          >
+            <p>Who Will Survive In America</p>
+          </div>
         </div>
       </div>
     </div>
