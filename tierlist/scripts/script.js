@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let userSearch = searchBar.value;
       searchBarContainer.classList.add("expanded");
       try {
-        // const results = await performSearch(userSearch);
+        const results = await performSearch(userSearch);
         let topResults = results.albums.items;
         console.log(topResults);
         for (let i = 0; i < 1; i++) {
@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   async function performSearch(query) {
-    const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
+    // const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
+    const url = `http://34.138.234.164:80/api/search/${encodeURIComponent(query)}`;
     try {
       const response = await fetch(url);
       if (!response.ok) {

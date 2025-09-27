@@ -1,0 +1,10 @@
+
+
+
+
+
+1. update backend to update expiration date + keep fresh tokens
+2. update backend to search for all songs/albums/artists
+3. put server code on vm and keep running
+4. update frontend to add elements to list
+5. 

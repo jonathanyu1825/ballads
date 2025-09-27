@@ -18,7 +18,8 @@ const PORT = process.env.PORT || 3000;
 
 const clientID = "bc152b06b1154fa7971dddbfb0307c21";
 const clientSecret = "8c915fb2b394463aacda06509bfa04f5";
-const accessToken = "BQDlWX4G4ZfK0QWXSZG_dw4h91NzpyRKMgypRpbQveC4qyXnSyexTMHCT3s8c2YNMvCXGhe_H973S0e66FPuckHQydAIPDcxnhvzaCpxk9gdzsmoDOPIcjdE2qk9RBpMggbc10EISyQ";
+let accessToken = null;
+const expirationDate = 0;
 
 async function getSpotifyToken(clientID, clientSecret) {
   try {
@@ -35,7 +36,6 @@ async function getSpotifyToken(clientID, clientSecret) {
         },
       }
     );
-    console.log(response.data);
     return response.data.access_token;
   } catch (error) {
     console.error("Error fetching token");
@@ -43,13 +43,24 @@ async function getSpotifyToken(clientID, clientSecret) {
   }
 }
 
+function isValid(accessToken) {
+  return accessToken != null && Date.now() < expirationDate;
+}
+
+async function updateToken() {
+  if (!isValid(accessToken)) {
+    console.log("hi 3");
+    accessToken = await getSpotifyToken(clientID, clientSecret);
+  }
+}
+
 async function searchSpotify(query) {
+  await updateToken();
   try {
-    const token = accessToken;
     const response = await axios.get(
       "https://api.spotify.com/v1/search",
       {
-        headers: { Authorization: `Bearer ${token}`},
+        headers: { Authorization: `Bearer ${accessToken}`},
         params: {
           q: query,
           type: "album",
@@ -66,7 +77,6 @@ async function searchSpotify(query) {
 
 app.get("/api/search/:query", async (req, res) => {
   const searchQuery = req.params.query;
-  console.log(searchQuery);
   const results = await searchSpotify(searchQuery);
   console.log(results);
   res.json(results);
