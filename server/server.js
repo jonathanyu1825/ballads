@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000;
 const clientID = "bc152b06b1154fa7971dddbfb0307c21";
 const clientSecret = "8c915fb2b394463aacda06509bfa04f5";
 let accessToken = null;
-const expirationDate = 0;
+let expirationDate = 0;
 
 async function getSpotifyToken(clientID, clientSecret) {
   try {
@@ -36,6 +36,7 @@ async function getSpotifyToken(clientID, clientSecret) {
         },
       }
     );
+    expirationDate = Date.now() + 3600 * 1000;
     return response.data.access_token;
   } catch (error) {
     console.error("Error fetching token");
@@ -49,7 +50,6 @@ function isValid(accessToken) {
 
 async function updateToken() {
   if (!isValid(accessToken)) {
-    console.log("hi 3");
     accessToken = await getSpotifyToken(clientID, clientSecret);
   }
 }
@@ -78,7 +78,7 @@ async function searchSpotify(query) {
 app.get("/api/search/:query", async (req, res) => {
   const searchQuery = req.params.query;
   const results = await searchSpotify(searchQuery);
-  console.log(results);
+  console.log(expirationDate);
   res.json(results);
 });
 

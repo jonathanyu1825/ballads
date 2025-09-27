@@ -3,8 +3,17 @@
 
 
 
-1. update backend to update expiration date + keep fresh tokens
-2. update backend to search for all songs/albums/artists
-3. put server code on vm and keep running
-4. update frontend to add elements to list
-5. 
+Frontend:
+
+// add remove tier button
+// add remove music element button
+// allow drag and drop into specific place
+// implement add song
+
+
+Backend:
+
+// search for songs, artists, albums
+// make background black flexible
+// fix nav bar
+// switch to https calls for production level
