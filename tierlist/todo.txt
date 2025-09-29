@@ -4,11 +4,13 @@
 
 
 Frontend:
-
-// add remove tier button
-// add remove music element button
+// expand search result and add "..." to longer ones
 // allow drag and drop into specific place
-// implement add song
+// implement add song --> search results should be created via javascript.
+// plus sign and minus sign inside divs are not aligned
+// make + and - nondeletable
+// add automatic coloring to new tiers
+// add change color option
 
 
 Backend:
@@ -17,3 +19,7 @@ Backend:
 // make background black flexible
 // fix nav bar
 // switch to https calls for production level
+
+Figma:
+
+// add save and publish tierlist

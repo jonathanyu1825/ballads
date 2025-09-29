@@ -25,6 +25,10 @@
     opacity: 100%;
 }
 
+.sign:hover .delete-tier {
+    opacity: 100%;
+}
+
 .add-tier {
     position: absolute;
     margin-top: 90px;
@@ -39,6 +43,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.delete-tier {
+    position: absolute;
+    opacity: 0%;
+    color: white;
+    height: 17px;
+    width: 17px;
+    background-color: #FF2428;
+    border-radius: 50%;
+    cursor: default;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 125px;
+    margin-bottom: 80px;
 }
 
 .tier-drop-zone {
@@ -76,6 +97,7 @@
     /* display: flex; */
     display: grid;
     grid-template-columns: repeat(auto-fill, 85px);
+    grid-template-rows: repeat(auto-fill, 85px);
     gap: 5px;
 }
 

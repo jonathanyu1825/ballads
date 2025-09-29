@@ -95,14 +95,14 @@
 .search-result {
     display: flex;
 }
-#test-result {
+.image-result {
     width: 50px;
     height: 50px;
     margin-left: 5px;
     border-radius: 5px;
 }
 
-.name-result {
+.track-result {
     width: 90px;
     height: 50px;
     margin-left: 10px;
@@ -118,19 +118,43 @@
     color: white;
     text-align: center;
     margin-top: 5px;
+    margin-left: 10px;
     cursor: default;
+    transition: 0.08s;
+    font-family: "Inter", sans-serif;
 }
 
-#name1 {
+.add-result.added {
+    margin-left: 0px;
+    background-color: #8a8335;
+    width: 50px;
+    font-size: 11px;
+}
+
+.track-name {
     font-weight: bold;
     font-size: 15px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-#name2 {
+.artist-name {
     font-size: 13px;
     margin-top: 5px;
+}
+
+.added-indicator {
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    background-color: #8a8335;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    height: 20px;
+    width: 50px;
+    margin-top: 10px;
 }
 
 /* updating stuff */

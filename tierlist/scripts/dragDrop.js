@@ -44,6 +44,8 @@ export function addNewTier() {
   const tierHolder = document.getElementById("tier-holder");
   tierHolder.addEventListener("click", (event) => {
     if (event.target.classList.contains("add-tier")) {
+      const clickedTier = event.target.closest(".tier");
+      
       const newTier = document.createElement("div");
       newTier.classList.add("tier");
 
@@ -64,7 +66,12 @@ export function addNewTier() {
       newTier.appendChild(newDropZone);
       newSign.appendChild(newAddTierButton);
 
-      tierHolder.appendChild(newTier);
+      clickedTier.after(newTier);
+    }
+
+    if (event.target.classList.contains("delete-tier") && tierHolder.children.length > 1) {
+      const clickedTier = event.target.closest(".tier");
+      clickedTier.remove();
     }
   });
 }

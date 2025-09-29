@@ -7,37 +7,92 @@ document.addEventListener("DOMContentLoaded", () => {
   setUpTierDragDrop();
   addNewTier();
 
-  function createTier() {
-    const newTier = document.createElement("div");
-  }
-
   let searchBarContainer = document.getElementById("main-page-nav-search");
   let searchBar = document.getElementById("main-page-search");
   
-  let testResult = document.getElementById("test-result");
+  let resultHolder = document.getElementById("result-holder");
   searchBarContainer.addEventListener("keydown", async (event) => {
     if (event.key == "Enter") {
+      resultHolder.innerHTML = "";
+      removeCurrentResults();
       let userSearch = searchBar.value;
       searchBarContainer.classList.add("expanded");
       try {
         const results = await performSearch(userSearch);
-        let topResults = results.albums.items;
-        console.log(topResults);
-        for (let i = 0; i < 1; i++) {
-          let picture = topResults[0].images[0].url;
-          testResult.src = picture;
-          // what do we need?
+        const topResults = results.tracks.items;
 
-          // picture
-          // name
-          // artist
+        for (let i = 0; i < topResults.length; i++) {
+          let result = topResults[i];
+          let artist = parseArtists(result.artists);
+          let name = result.name;
+          let imageURL = result.album.images[0].url;
 
+          const newTrackElement = createTrackElement(artist, name, imageURL);
+          resultHolder.appendChild(newTrackElement);
         }
       } catch {
         console.error("Error");
       }
     }
   });
+
+  function removeCurrentResults() {
+    
+  }
+
+  function parseArtists(artists) {
+    let artistNames = artists.map(artist => artist.name).join(', ');
+    return artistNames;
+  }
+
+  function createTrackElement(artist, name, imageURL) {
+    const searchResult = document.createElement("div");
+    searchResult.classList.add("search-result");
+
+    const trackImage = document.createElement("img");
+    trackImage.src = imageURL;
+    trackImage.classList.add("image-result");
+
+    const trackResult = document.createElement("div");
+    trackResult.classList.add("track-result");
+
+    const trackName = document.createElement("p");
+    trackName.classList.add("track-name");
+    trackName.textContent = name;
+
+    const artistName = document.createElement("p");
+    artistName.classList.add("artist-name");
+    artistName.textContent = artist;
+
+    const addResult = document.createElement("div");
+    addResult.classList.add("add-result");
+
+    const plusSign = document.createElement("div");
+    plusSign.classList.add("add-element");
+    plusSign.textContent = "+";
+
+    trackResult.appendChild(trackName);
+    trackResult.appendChild(artistName);
+
+    addResult.appendChild(plusSign);
+
+    searchResult.appendChild(trackImage);
+    searchResult.appendChild(trackResult);
+    searchResult.appendChild(addResult);
+
+    return searchResult;
+  }
+
+  // <div class="search-result">
+  //             <img id="test-result" src="images/mbdtf.jpg" />
+  //             <div class = "name-result">
+  //               <p class = "name1"> Runaway </p>
+  //               <p class = "name2"> Kanye West </p>
+  //             </div>
+  //             <div class = "add-result">
+  //               <div class = "add-element""> + </div>
+  //             </div>
+  //           </div>
 
   const mainPage = document.getElementById("main-page");
   mainPage.addEventListener("click", (event) => {
@@ -60,4 +115,19 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(error.message);
     }
   }
+
+  const musicSearch = document.getElementById("main-page-nav-search");
+  musicSearch.addEventListener("click", (event) => {
+    let clickedElement = event.target;
+    if (clickedElement.classList.contains("add-element")) {
+      let addResult = clickedElement.parentElement;
+      if (!addResult.classList.contains("added")) {
+        addResult.classList.add("added");
+        clickedElement.textContent = "Added";
+      } else {
+        addResult.classList.remove("added");
+        clickedElement.textContent = "+";
+      }
+    }
+  });
 });

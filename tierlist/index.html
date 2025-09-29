@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Ballads</title>
+    <link rel="icon" href="images/ballads_logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,16 +54,27 @@
               type="text"
               placeholder="search for music to add"
             />
-            <div class="search-result">
-              <img id="test-result" src="images/mbdtf.jpg" />
-              <div class = "name-result">
-                <p id = "name1"> Runaway </p>
-                <p id = "name2"> Kanye West </p>
+            <div id = "result-holder"></div>
+            <!-- <div class="search-result">
+              <img class="image-result" src="images/mbdtf.jpg" />
+              <div class = "track-result">
+                <p class = "track-name"> Runaway </p>
+                <p class = "artist-name"> Kanye West </p>
               </div>
               <div class = "add-result">
-                <div> + </div>
+                <div class = "add-element""> + </div>
               </div>
             </div>
+            <div class="search-result">
+              <img class="image-result" src="images/mbdtf.jpg" />
+              <div class = "track-result">
+                <p class = "track-name"> Runaway </p>
+                <p class = "artist-name"> Kanye West </p>
+              </div>
+              <div class = "added-indicator">
+                <div class = "added-sign"> Added </div>
+              </div>
+            </div> -->
           </div>
         </div>
         <div id="tier-holder">
@@ -70,6 +82,7 @@
             <div id="s-tier-sign" class="sign" contenteditable="True">
               S
               <div class="add-tier" contenteditable="false">+</div>
+              <div class="delete-tier" contenteditable="false">-</div>
             </div>
             <div class="tier-drop-zone"></div>
           </div>
@@ -77,6 +90,7 @@
             <div id="a-tier-sign" class="sign" contenteditable="True">
               A
               <div class="add-tier" contenteditable="false">+</div>
+              <div class="delete-tier" contenteditable="false">-</div>
             </div>
             <div class="tier-drop-zone"></div>
           </div>
@@ -84,6 +98,7 @@
             <div id="b-tier-sign" class="sign" contenteditable="True">
               B
               <div class="add-tier" contenteditable="false">+</div>
+              <div class="delete-tier" contenteditable="false">-</div>
             </div>
             <div class="tier-drop-zone"></div>
           </div>
@@ -91,6 +106,7 @@
             <div id="c-tier-sign" class="sign" contenteditable="True">
               C
               <div class="add-tier" contenteditable="false">+</div>
+              <div class="delete-tier" contenteditable="false">-</div>
             </div>
             <div class="tier-drop-zone"></div>
           </div>
@@ -98,6 +114,7 @@
             <div id="f-tier-sign" class="sign" contenteditable="True">
               F
               <div class="add-tier" contenteditable="false">+</div>
+              <div class="delete-tier" contenteditable="false">-</div>
             </div>
             <div class="tier-drop-zone"></div>
           </div>

@@ -63,8 +63,8 @@ async function searchSpotify(query) {
         headers: { Authorization: `Bearer ${accessToken}`},
         params: {
           q: query,
-          type: "album",
-          limit: 10
+          type: "track",
+          limit: 20
         }
       }
     );
