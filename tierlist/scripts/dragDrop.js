@@ -6,15 +6,41 @@ export function setUpMusicDragDrop() {
       event.dataTransfer.effectAllowed = "move";
     }
   });
+  let closestElement = null;
   musicHolder.addEventListener("dragover", (event) => {
     event.preventDefault();
+    closestElement = getClosestElement(musicHolder, event.x, event.y);
   });
   musicHolder.addEventListener("drop", (event) => {
     event.preventDefault();
     const id = event.dataTransfer.getData("text/plain");
     const draggedElement = document.getElementById(id);
-    musicHolder.appendChild(draggedElement);
+    musicHolder.insertBefore(draggedElement, closestElement);
   });
+}
+// double check if this works
+export function getClosestElement(container, x, y) {
+  const nonDraggedElements = [...container.querySelectorAll('.music-element:not(.dragging)')]
+  let closest = { distance: Infinity, element: null };
+
+  nonDraggedElements.forEach(element => {
+    const elementDimensions = element.getBoundingClientRect();
+
+    // width not working
+    const centerX = elementDimensions.left + elementDimensions.width / 2;
+    const centerY = elementDimensions.bottom + elementDimensions.height / 2;
+
+    const offsetX = x - centerX;
+    const offsetY = y - centerY;
+
+
+    const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+
+    if (distance < closest.distance) {
+      closest = {distance: distance, element: element}
+    }
+  });
+  return closest.element;
 }
 
 export function setUpTierDragDrop() {

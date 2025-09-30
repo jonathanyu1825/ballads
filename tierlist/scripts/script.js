@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setUpMusicDragDrop();
   setUpTierDragDrop();
   addNewTier();
-
+  
+  
   let searchBarContainer = document.getElementById("main-page-nav-search");
   let searchBar = document.getElementById("main-page-search");
   
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   searchBarContainer.addEventListener("keydown", async (event) => {
     if (event.key == "Enter") {
       resultHolder.innerHTML = "";
-      removeCurrentResults();
       let userSearch = searchBar.value;
       searchBarContainer.classList.add("expanded");
       try {
@@ -36,8 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function removeCurrentResults() {
-    
+  const body = document.body;
+  body.addEventListener("click", (event) => {
+    let clickedElement = event.target;
+    let isSearchBar = clickedElement.closest("#main-page-nav-search");
+    if (isSearchBar == null && searchBarContainer.classList.contains("expanded")) {
+      closeSearchBarContainer();
+    }
+  });
+
+  function closeSearchBarContainer() {
+    resultHolder.innerHTML = "";
+    searchBarContainer.classList.remove("expanded");
   }
 
   function parseArtists(artists) {
@@ -94,12 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
   //             </div>
   //           </div>
 
-  const mainPage = document.getElementById("main-page");
-  mainPage.addEventListener("click", (event) => {
-    if (searchBar.classList.contains("expanded") && event.target.id != "main-page-nav-search") {
-      searchBar.classList.remove("expanded");
-    }
-  });
+  // const mainPage = document.getElementById("main-page");
+  // mainPage.addEventListener("click", (event) => {
+  //   if (searchBar.classList.contains("expanded") && event.target.id != "main-page-nav-search") {
+  //     searchBar.classList.remove("expanded");
+  //   }
+  // });
 
   async function performSearch(query) {
     // const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
@@ -117,17 +127,37 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const musicSearch = document.getElementById("main-page-nav-search");
+  const musicHolder = document.getElementById("music-holder");
+  let elementCount = 0;
   musicSearch.addEventListener("click", (event) => {
     let clickedElement = event.target;
     if (clickedElement.classList.contains("add-element")) {
       let addResult = clickedElement.parentElement;
       if (!addResult.classList.contains("added")) {
+        elementCount += 1;
         addResult.classList.add("added");
         clickedElement.textContent = "Added";
+
+        let newElement = clickedElement.parentElement.previousElementSibling;
+        let newImage = 'url(' + newElement.previousElementSibling.src + ')';
+  
+        let newElementTrack = newElement.querySelector('.track-name');
+        musicHolder.appendChild(createNewElement(newElementTrack.cloneNode(true), newImage));
       } else {
         addResult.classList.remove("added");
         clickedElement.textContent = "+";
       }
     }
   });
+
+  function createNewElement(newElementTrack, newElementImage) {
+    let newElement = document.createElement("div");
+    newElement.classList.add("music-element");
+    newElement.id = "element-" + elementCount;
+    newElement.draggable = "true";
+    newElement.style.setProperty("--bg-image", newElementImage);
+
+    newElement.appendChild(newElementTrack);
+    return newElement;
+  }
 });
