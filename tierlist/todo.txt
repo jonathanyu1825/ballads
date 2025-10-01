@@ -9,6 +9,7 @@
 URGENT:
 
 - ORGANIZE ALL CODE INTO MODULAR PIECES --> CSS, JS
+- ADD SSL CERTIFICATION TO SERVER NOT CLIENT
 
 Frontend:
 // expand search result and add "..." to longer ones
