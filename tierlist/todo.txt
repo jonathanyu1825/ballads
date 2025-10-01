@@ -1,7 +1,18 @@
 
 
+Tier List Data Needed:
 
+- tier names
+- tier order
+- songs in each tier (image url + name)
+- tier title
 
+Where would data change:
+
+- when someone changes title
+- upon drag and drop
+- upon changing tier listname
+- upon adding new tier list
 
 
 

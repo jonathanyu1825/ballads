@@ -2,12 +2,27 @@ import { setUpMusicDragDrop } from './dragDrop.js';
 import { setUpTierDragDrop } from './dragDrop.js';
 import { addNewTier } from './dragDrop.js';
 
+export let tierListData = {
+  title: "add a title",
+  tiers: [
+    { tier_name: "S", items: [] },
+    { tier_name: "A", items: [] },
+    { tier_name: "B", items: [] },
+    { tier_name: "C", items: [] },
+    { tier_name: "D", items: [] },
+    { tier_name: "F", items: [] }
+  ]
+}
 document.addEventListener("DOMContentLoaded", () => {
   setUpMusicDragDrop();
   setUpTierDragDrop();
   addNewTier();
   
-  
+  let addTitle = document.getElementById("add-title");
+  addTitle.addEventListener("input", () => {
+    tierListData.title = addTitle.textContent;
+  });
+
   let searchBarContainer = document.getElementById("main-page-nav-search");
   let searchBar = document.getElementById("main-page-search");
   
@@ -113,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function performSearch(query) {
     // const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
-    const url = `https://34.138.234.164/api/search/${encodeURIComponent(query)}`;
+    const url = `https://api.ballads.live/api/search/${encodeURIComponent(query)}`;
     // const url = `http://34.138.234.164:80/api/search/${encodeURIComponent(query)}`;
     try {
       const response = await fetch(url);
@@ -140,9 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
         clickedElement.textContent = "Added";
 
         let newElement = clickedElement.parentElement.previousElementSibling;
+        console.log(newElement);
         let newImage = 'url(' + newElement.previousElementSibling.src + ')';
+        console.log(newImage);
   
         let newElementTrack = newElement.querySelector('.track-name');
+        console.log(newElementTrack);
         musicHolder.appendChild(createNewElement(newElementTrack.cloneNode(true), newImage));
       } else {
         addResult.classList.remove("added");
@@ -158,6 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
     newElement.draggable = "true";
     newElement.style.setProperty("--bg-image", newElementImage);
 
+    newElementTrack.classList.remove("track-name");
+    console.log(newElementTrack);
     newElement.appendChild(newElementTrack);
     return newElement;
   }

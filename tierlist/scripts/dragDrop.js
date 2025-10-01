@@ -1,3 +1,5 @@
+import { tierListData } from './script.js';
+
 export function setUpMusicDragDrop() {
   const musicHolder = document.getElementById("music-holder");
   musicHolder.addEventListener("dragstart", (event) => {
@@ -57,6 +59,16 @@ export function setUpTierDragDrop() {
 
     const tier = event.target.closest(".tier-drop-zone");
     tier.appendChild(draggedElement);
+    
+    // console.log(tier);
+    // let imageURL = getComputedStyle(draggedElement).getPropertyValue("--bg-image").trim();
+    // let name = draggedElement.firstChild.textContent;
+
+    // let item = { imageURL: imageURL, name: name};
+
+    // figure out how to add tiers to data before dealing with elements
+
+    
   });
   tierHolder.addEventListener("dragstart", (event) => {
     if (event.target.classList.contains("music-element")) {

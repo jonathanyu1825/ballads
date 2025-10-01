@@ -136,36 +136,39 @@
     cursor: default;
     transition: 0.08s;
     font-family: "Inter", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .add-result.added {
-    margin-left: 0px;
     background-color: #8a8335;
+    margin-left: 25px;
     width: 50px;
     font-size: 11px;
 }
 
 .track-name {
-    width: 180px;
+    width: 170px;
     
     font-weight: bold;
     font-size: 15px;
     margin-top: 0px;
     margin-bottom: 0px;
-    /* white-space: nowrap;
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; */
+    text-overflow: ellipsis;
 }
 
 .artist-name {
     font-size: 13px;
     margin-top: 5px;
-    /* white-space: nowrap;
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; */
+    text-overflow: ellipsis;
 }
 
-.added-indicator {
+/* .added-indicator {
     font-family: "Inter", sans-serif;
     font-size: 11px;
     background-color: #8a8335;
@@ -177,7 +180,7 @@
     height: 20px;
     width: 50px;
     margin-top: 10px;
-}
+} */
 
 /* updating stuff */
 
