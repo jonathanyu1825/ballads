@@ -3,10 +3,16 @@
 
 
 
+
+
+
+URGENT:
+
+- ORGANIZE ALL CODE INTO MODULAR PIECES --> CSS, JS
+
 Frontend:
 // expand search result and add "..." to longer ones
 // allow drag and drop into specific place
-// implement add song --> search results should be created via javascript.
 // plus sign and minus sign inside divs are not aligned
 // make + and - nondeletable
 // add automatic coloring to new tiers
