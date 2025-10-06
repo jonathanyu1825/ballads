@@ -1,6 +1,4 @@
-import { tierListData } from './script.js';
-
-export function setUpMusicDragDrop() {
+function setUpMusicDragDrop() {
   const musicHolder = document.getElementById("music-holder");
   musicHolder.addEventListener("dragstart", (event) => {
     if (event.target.classList == "music-element") {
@@ -21,7 +19,7 @@ export function setUpMusicDragDrop() {
   });
 }
 // double check if this works
-export function getClosestElement(container, x, y) {
+function getClosestElement(container, x, y) {
   const nonDraggedElements = [...container.querySelectorAll('.music-element:not(.dragging)')]
   let closest = { distance: Infinity, element: null };
 
@@ -45,7 +43,7 @@ export function getClosestElement(container, x, y) {
   return closest.element;
 }
 
-export function setUpTierDragDrop() {
+function setUpTierDragDrop() {
   const tierHolder = document.getElementById("tier-holder");
   tierHolder.addEventListener("dragover", (event) => {
     if (event.target.classList.contains("tier-drop-zone")) {
@@ -78,7 +76,7 @@ export function setUpTierDragDrop() {
   });
 }
 
-export function addNewTier() {
+function addNewTier() {
   const tierHolder = document.getElementById("tier-holder");
   tierHolder.addEventListener("click", (event) => {
     if (event.target.classList.contains("add-tier")) {
@@ -105,6 +103,7 @@ export function addNewTier() {
       newSign.appendChild(newAddTierButton);
 
       clickedTier.after(newTier);
+      
     }
 
     if (event.target.classList.contains("delete-tier") && tierHolder.children.length > 1) {
@@ -113,3 +112,5 @@ export function addNewTier() {
     }
   });
 }
+
+export { setUpMusicDragDrop, setUpTierDragDrop, addNewTier };

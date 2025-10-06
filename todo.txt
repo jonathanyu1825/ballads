@@ -1,5 +1,22 @@
 
 
+
+
+Components needed:
+
+- black background
+- 
+
+
+example tier lists:
+
+- All Kanye Songs Ranked
+- All Drake Songs Ranked
+- All Kendrick Songs Ranked
+- Kendrick Vs. Drake Rap Bracket
+
+
+
 Tier List Data Needed:
 
 - tier names
@@ -14,13 +31,27 @@ Where would data change:
 - upon changing tier listname
 - upon adding new tier list
 
+Database schema:
+
+Tiers
+-----------------------------
+TierID |||| UserID |||| Timestamp ||||| TierData |||| 
 
 
 
 URGENT:
 
+- fix nav bar, fix nav bar, fix nav bar, fix nav bar
+- watch some nav bar vids to get a general idea
+- try grid
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+
+
+
+
 - ORGANIZE ALL CODE INTO MODULAR PIECES --> CSS, JS
-- ADD SSL CERTIFICATION TO SERVER NOT CLIENT
+- Begin React Project. Once React is comfortable, migrate tierlist to react.
 
 Frontend:
 // expand search result and add "..." to longer ones

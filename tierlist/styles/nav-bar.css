@@ -24,17 +24,18 @@
 
 #nav-content {
     padding-top: 1.5px;
-    margin: 0 auto 0 auto;
+    /* margin: 0 auto 0 auto; */
     display: flex;
     width: 95%;
     flex-direction: row;
     align-items: center;
+    /* justify-content: space-between; */
 }
 
 #nav-logo {
+    position: relative;
     z-index: 1;
-    margin-left: 2%;
-    /* flex: 1; */
+    margin-left: 4%;
     display: flex;
 }
 
@@ -66,7 +67,7 @@
 #nav-contact {
     position: relative;
     margin-left: 52%;
-    flex: 1;
+    /* flex: 1; */
 }
 
 #nav-games {

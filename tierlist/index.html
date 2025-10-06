@@ -16,6 +16,16 @@
     <link rel="stylesheet" href="styles/nav-bar.css" />
     <link rel="stylesheet" href="styles/main-page.css" />
     <link rel="stylesheet" href="styles/tier.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+      const supabaseURL = "https://pwxpfvlzhcdkxakbqzig.supabase.co";
+      const anonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3eHBmdmx6aGNka3hha2JxemlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc2MTY4NjQsImV4cCI6MjA3MzE5Mjg2NH0.n_dlCTK2wG_rPxgr--RfjH9oQ_cAWue2uR2P2Xc6i-M";
+      const supabaseClient = supabase.createClient(supabaseURL, anonKey);
+    </script>
+
+
     <script type="module" src="scripts/script.js"></script>
   </head>
   <body>
@@ -56,17 +66,25 @@
               placeholder="search for music to add"
             />
             <div id="result-holder"></div>
-            <!-- <div class="search-result">
+            <!-- comment out below -->
+            <div class="search-result">
               <img class="image-result" src="images/mbdtf.jpg" />
               <div class = "track-result">
                 <p class = "track-name"> Runaway </p>
                 <p class = "artist-name"> Kanye West </p>
               </div>
               <div class = "add-result">
-                <div class = "add-element""> + </div>
+                <div class = "add-element"> + </div>
+
+                <!-- delete add element and make add result the button
+                     edit js and css files to reflect this
+                     wrap add result and add album inside larger div
+                     add "add-album-elements" div 
+                     figure out how merge works -->
+
               </div>
             </div>
-            <div class="search-result">
+            <!-- <div class="search-result">
               <img class="image-result" src="images/mbdtf.jpg" />
               <div class = "track-result">
                 <p class = "track-name"> Runaway </p>
@@ -76,11 +94,12 @@
                 <div class = "added-sign"> Added </div>
               </div>
             </div> -->
+
           </div>
         </div>
         <div id="tier-holder">
-          <div id="s-tier" class="tier">
-            <div id="s-tier-sign" class="sign" contenteditable="True">
+          <div id="s-tier" data-position = "0" class="tier">
+            <div id="s-tier-sign" class="sign" style="background-color: #DB5151;" contenteditable="True">
               S
               <div class="add-tier" contenteditable="false">+</div>
               <div class="delete-tier" contenteditable="false">-</div>
@@ -88,7 +107,7 @@
             <div class="tier-drop-zone"></div>
           </div>
           <div id="a-tier" class="tier">
-            <div id="a-tier-sign" class="sign" contenteditable="True">
+            <div id="a-tier-sign" class="sign" style="background-color: #DB8A51;" contenteditable="True">
               A
               <div class="add-tier" contenteditable="false">+</div>
               <div class="delete-tier" contenteditable="false">-</div>
@@ -96,7 +115,7 @@
             <div class="tier-drop-zone"></div>
           </div>
           <div id="b-tier" class="tier">
-            <div id="b-tier-sign" class="sign" contenteditable="True">
+            <div id="b-tier-sign" class="sign" style="background-color: #DBC051;" contenteditable="True">
               B
               <div class="add-tier" contenteditable="false">+</div>
               <div class="delete-tier" contenteditable="false">-</div>
@@ -104,7 +123,7 @@
             <div class="tier-drop-zone"></div>
           </div>
           <div id="c-tier" class="tier">
-            <div id="c-tier-sign" class="sign" contenteditable="True">
+            <div id="c-tier-sign" class="sign" style="background-color: #76DB51;" contenteditable="True">
               C
               <div class="add-tier" contenteditable="false">+</div>
               <div class="delete-tier" contenteditable="false">-</div>
@@ -112,7 +131,7 @@
             <div class="tier-drop-zone"></div>
           </div>
           <div id="f-tier" class="tier">
-            <div id="f-tier-sign" class="sign" contenteditable="True">
+            <div id="f-tier-sign" class="sign" style="background-color: #51D2DB;" contenteditable="True">
               F
               <div class="add-tier" contenteditable="false">+</div>
               <div class="delete-tier" contenteditable="false">-</div>
