@@ -68,7 +68,14 @@ Backend:
 // make background black flexible
 // fix nav bar
 // switch to https calls for production level
+// modularize backend
 
 Figma:
 
 // add save and publish tierlist
+
+
+Features Currently Working On:
+
+- React Home Page
+- Album Tracks

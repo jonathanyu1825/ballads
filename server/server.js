@@ -63,7 +63,8 @@ async function searchSpotify(query) {
         headers: { Authorization: `Bearer ${accessToken}`},
         params: {
           q: query,
-          type: "track",
+          // type: "track",
+          type: "track,album,artist",
           limit: 20
         }
       }
@@ -75,12 +76,42 @@ async function searchSpotify(query) {
   }
 }
 
+async function getAlbum(albumID) {
+  const url = `https://api.spotify.com/v1/albums/${albumID}`;
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const trackData = response.data.tracks.items;
+    let trackList = [];
+    trackData.forEach((track) => {
+      trackList.push(track.name);
+    });
+    return trackList;
+  } catch (error) {
+    console.error(`Error fetching album:`, error);
+  }
+}
+
 app.get("/api/search/:query", async (req, res) => {
   const searchQuery = req.params.query;
   const results = await searchSpotify(searchQuery);
-  console.log(expirationDate);
+  // console.log(expirationDate);
   res.json(results);
 });
+
+// implement getAlbumTracks() feature
+// app.get()
+
+app.get("/api/get/album/:query", async (req, res) => {
+  const albumID = req.params.query;
+  const results = await getAlbum(albumID);
+  res.json(results);
+});
+
+// const url = `http://localhost:3000/api/get/album/${encodeURIComponent(albumId)}`;
 
 
 

@@ -125,8 +125,8 @@
 }
 
 .add-result {
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     background-color: #9e89a8;
     border-radius: 5px;
     color: white;
@@ -139,6 +139,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 15px;
 }
 
 .add-result.added {
@@ -146,6 +147,16 @@
     margin-left: 25px;
     width: 50px;
     font-size: 11px;
+}
+
+/* #add-element {
+
+} */
+
+#add-album-results {
+    background-color: #88ae94;
+    /* height: 15px;
+    width: 20px; */
 }
 
 .track-name {

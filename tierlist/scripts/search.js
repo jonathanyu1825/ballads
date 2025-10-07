@@ -4,6 +4,12 @@ let searchBar = document.getElementById("main-page-search");
 let resultHolder = document.getElementById("result-holder");
 const body = document.body;
 
+let albumMap = {
+
+};
+
+let albumCount = 1;
+
 function setupSearch() {
   searchBarContainer.addEventListener("keydown", async (event) => {
     if (event.key == "Enter") {
@@ -12,17 +18,43 @@ function setupSearch() {
       searchBarContainer.classList.add("expanded");
       try {
         const results = await performSearch(userSearch);
-        const topResults = results.tracks.items;
 
-        for (let i = 0; i < topResults.length; i++) {
-          let result = topResults[i];
+        // const topTrackResults = results.tracks.items;
+        // for (let i = 0; i < topTrackResults.length; i++) {
+        //   let result = topTrackResults[i];
+        //   let artist = parseArtists(result.artists);
+        //   let name = result.name;
+        //   let type = "track";
+        //   let imageURL = result.album.images[0].url;
+        //   const newTrackElement = createTrackElement(type, artist, name, imageURL);
+        //   resultHolder.appendChild(newTrackElement);
+        // }
+
+        const topAlbumResults = results.albums.items;
+
+        for (let i = 0; i < topAlbumResults.length; i++) {
+          let result = topAlbumResults[i];
           let artist = parseArtists(result.artists);
           let name = result.name;
-          let imageURL = result.album.images[0].url;
-
-          const newTrackElement = createTrackElement(artist, name, imageURL);
+          let imageURL = result.images[0].url;
+          let albumId = result.id;
+          let type = "album";
+          let tracks = await fetchAlbumTracks(albumId);
+          if (!albumMap[albumId]) {
+            albumMap[albumCount] = tracks;
+          }
+          const newTrackElement = createTrackElement(type, artist, name, imageURL);
+          newTrackElement.dataset.albumCount = albumCount;
+          albumCount += 1;
           resultHolder.appendChild(newTrackElement);
         }
+
+
+        // what do we need?
+        // album cover
+        // album name
+        // list of tracks
+        // need to associate data with album without displaying
       } catch {
         console.error("Error");
       }
@@ -51,7 +83,7 @@ function parseArtists(artists) {
   return artistNames;
 }
 
-function createTrackElement(artist, name, imageURL) {
+function createTrackElement(type, artist, name, imageURL) {
   const searchResult = document.createElement("div");
   searchResult.classList.add("search-result");
 
@@ -70,23 +102,50 @@ function createTrackElement(artist, name, imageURL) {
   artistName.classList.add("artist-name");
   artistName.textContent = artist;
 
-  const addResult = document.createElement("div");
-  addResult.classList.add("add-result");
+  const addButtonHolder = document.createElement("div");
+  addButtonHolder.classList.add("add-button-holder");
 
-  const plusSign = document.createElement("div");
-  plusSign.classList.add("add-element");
-  plusSign.textContent = "+";
+  const addElement = document.createElement("div");
+  addElement.id = "add-element";
+  addElement.classList.add("add-result");
+  addElement.textContent = "+";
+
+  
 
   trackResult.appendChild(trackName);
   trackResult.appendChild(artistName);
 
-  addResult.appendChild(plusSign);
+  addButtonHolder.appendChild(addElement);
+
+  if (type == "album") {
+    const addAlbumResults = document.createElement("div");
+    addAlbumResults.id = "add-album-results";
+    addAlbumResults.classList.add("add-result");
+    addAlbumResults.textContent = "+";
+    addButtonHolder.appendChild(addAlbumResults);
+  } 
+  console.log(addButtonHolder.children);
+
 
   searchResult.appendChild(trackImage);
   searchResult.appendChild(trackResult);
-  searchResult.appendChild(addResult);
+  searchResult.appendChild(addButtonHolder);
 
   return searchResult;
+}
+
+async function fetchAlbumTracks(albumId) {
+  const url = `http://localhost:3000/api/get/album/${encodeURIComponent(albumId)}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 // <div class="search-result">
@@ -108,10 +167,10 @@ function createTrackElement(artist, name, imageURL) {
 // });
 
 async function performSearch(query) {
-  // const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
-  const url = `https://api.ballads.live/api/search/${encodeURIComponent(
-    query
-  )}`;
+  const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
+  // const url = `https://api.ballads.live/api/search/${encodeURIComponent(
+  //   query
+  // )}`;
   // const url = `http://34.138.234.164:80/api/search/${encodeURIComponent(query)}`;
   try {
     const response = await fetch(url);
@@ -132,37 +191,60 @@ let elementCount = 0;
 function setupAddElement() {
   musicSearch.addEventListener("click", (event) => {
     let clickedElement = event.target;
-    if (clickedElement.classList.contains("add-element")) {
-      let addResult = clickedElement.parentElement;
-      if (!addResult.classList.contains("added")) {
-        elementCount += 1;
-        addResult.classList.add("added");
+    if (clickedElement.classList.contains("add-result")) {
+      if (!clickedElement.classList.contains("added")) {
+        clickedElement.classList.add("added");
         clickedElement.textContent = "Added";
-
         let newElement = clickedElement.parentElement.previousElementSibling;
         let newImage = "url(" + newElement.previousElementSibling.src + ")";
-
-        let newElementTrack = newElement.querySelector(".track-name");
-        musicHolder.appendChild(
-          createNewElement(newElementTrack.cloneNode(true), newImage)
-        );
+        if (clickedElement.id == "add-element") {
+          let newElementTrack = newElement.querySelector(".track-name").textContent;
+          musicHolder.appendChild(
+            createNewElement(newImage, newElementTrack)
+          );
+        }
+        else if (clickedElement.id == "add-album-results") {
+          let albumKey = newElement.parentElement.dataset.albumCount;
+          let albumTracks = albumMap[albumKey];
+          for (let i = 0; i < albumTracks.length; i++) {
+            // create elements and add to holder
+            console.log(albumMap);
+            musicHolder.appendChild(
+              createNewElement(newImage, albumTracks[i])
+            );
+          }
+          // find a formula for "all" search results
+        }
       } else {
-        addResult.classList.remove("added");
+        clickedElement.classList.remove("added");
         clickedElement.textContent = "+";
       }
     }
   });
 }
 
-function createNewElement(newElementTrack, newElementImage) {
+function createNewElement(newElementImage, newElementName) {
+  console.log(newElementName);
+  // let newElement = document.createElement("div");
+  // newElement.classList.add("music-element");
+  // newElement.id = "element-" + elementCount;
+  // newElement.draggable = "true";
+  // newElement.style.setProperty("--bg-image", newElementImage);
+
+  // newElementTrack.classList.remove("track-name");
+  // newElement.appendChild(newElementTrack);
+  // return newElement;
+
   let newElement = document.createElement("div");
   newElement.classList.add("music-element");
   newElement.id = "element-" + elementCount;
+  elementCount += 1;
   newElement.draggable = "true";
   newElement.style.setProperty("--bg-image", newElementImage);
-
-  newElementTrack.classList.remove("track-name");
-  newElement.appendChild(newElementTrack);
+  
+  let newElementTitle = document.createElement("p");
+  newElementTitle.textContent = newElementName;
+  newElement.appendChild(newElementTitle);
   return newElement;
 }
 
