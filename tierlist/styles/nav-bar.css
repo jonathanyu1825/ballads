@@ -43,7 +43,7 @@
     position: relative;
     z-index: 1;
     width: 45px;
-    margin-left: 2%;
+    margin-left: 0.1vw;
 }
 
 #nav-search {
@@ -66,13 +66,13 @@
 
 #nav-contact {
     position: relative;
-    margin-left: 52%;
+    margin-left: 20vw;
     /* flex: 1; */
 }
 
 #nav-games {
     position: relative;
-    margin-left: 5%;
+    left: 20vw;
 }
 
 #nav-profile {

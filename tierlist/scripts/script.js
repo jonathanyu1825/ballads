@@ -1,4 +1,4 @@
-import { setUpMusicDragDrop, setUpTierDragDrop, addNewTier } from "./dragDrop.js";
+import { setUpMusicDragDrop, setUpTierDragDrop, addNewTier, editResults } from "./dragDrop.js";
 import { setupPublishTierList } from "./publish.js";
 import { setupSearch, setupAddElement } from "./search.js";
 
@@ -12,4 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPublishTierList();
   setupSearch();
   setupAddElement();
+  editResults();
 });

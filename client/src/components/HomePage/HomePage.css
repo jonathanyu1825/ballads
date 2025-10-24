@@ -1,0 +1,170 @@
+.home-page-album-cover {
+  width: 280px;
+  filter: blur(1.5px);
+  border-radius: 25px;
+  margin: 0px 10px 0px 10px;
+  opacity: 0.6;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  overflow: hidden;
+  height: 78%;
+  box-sizing: border-box;
+  border-radius: 45px;
+}
+
+#col1 {
+  animation: moveDownCol1 8s linear infinite;
+  margin-top: -1205px;
+  /* margin-top: -30px; */
+}
+
+#col2 {
+  animation: moveUpCol2 10s linear infinite;
+  margin-top: -70px;
+}
+
+#col3 {
+  animation: moveDownCol3 10s linear infinite;
+  margin-top: -1305px;
+}
+
+#col4 {
+  animation: moveUpCol4 8s linear infinite;
+  margin-top: -170px;
+}
+
+@keyframes moveDownCol1 {
+  0% {
+    margin-top: -1205px;
+  }
+  100% {
+    margin-top: -70px;
+  }
+}
+
+@keyframes moveUpCol2 {
+  0% {
+    margin-top: -70px;
+  }
+  100% {
+    margin-top: -1205px;
+  }
+}
+
+@keyframes moveDownCol3 {
+  0% {
+    margin-top: -1305px;
+  }
+  100% {
+    margin-top: -170px;
+  }
+}
+
+@keyframes moveUpCol4 {
+  0% {
+    margin-top: -170px;
+  }
+  100% {
+    margin-top: -1305px;
+  }
+}
+
+.home-page {
+  height: 80%;
+  width: 800px;
+  margin-top: -220px;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  border: solid red 2px;
+}
+
+#title {
+  letter-spacing: -5px;
+  font-size: 90px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
+
+#subtitle {
+  margin-top: 0px;
+  margin-bottom: 35px;
+  letter-spacing: -6px;
+  font-weight: 300;
+  font-size: 70px;
+}
+
+#logo {
+  vertical-align: -27px;
+  width: 120px;
+}
+
+.home-page-button {
+  position: absolute;
+  border-radius: 15px;
+  color: white;
+  width: 150px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 5px 5px 4px black;
+  border: solid white 1px;
+  filter: blur(1.5px);
+  z-index: -1;
+}
+
+
+/* MAKE BLUR DISAPPEAR WHEN HOVERING!!!!
+
+/* .home-page-button:hover {
+  filter: blur(0px);
+} */
+
+#signup {
+    margin-left: 135px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#subscribe {
+    margin-left: 90px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sign-up-btn {
+  background-color: #8c61a1;
+}
+
+#subscribe-btn {
+  background-color: #c4b950;
+}
+
+#signup-msg {
+    cursor: default;
+    padding: 0px;
+    margin: 0px;
+    font-size: 25px;
+}
+
+#subscribe-msg {
+    padding: 0px;
+    margin: 0px;
+    cursor: default;
+    font-size: 25px;
+}
+
+#home-page-buttons {
+  position: relative;
+  display: flex;
+  height: auto;
+  margin-top: 50px;
+  /* justify-content: center; */
+}

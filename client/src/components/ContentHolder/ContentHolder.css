@@ -1,0 +1,7 @@
+.content-holder {
+    position: relative;
+    width: var(--content-width);
+    height: var(--content-height);
+    margin: var(--content-margin);
+    padding: var(--content-padding);
+}

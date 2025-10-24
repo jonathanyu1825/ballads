@@ -1,65 +1,53 @@
+Search Algorithm:
 
+- track, artist, album specifically --> basic search on api
 
+- all:
 
+Steps:
 
-Components needed:
-
-- black background
-- 
-
-
-example tier lists:
-
-- All Kanye Songs Ranked
-- All Drake Songs Ranked
-- All Kendrick Songs Ranked
-- Kendrick Vs. Drake Rap Bracket
-
-
-
-Tier List Data Needed:
-
-- tier names
-- tier order
-- songs in each tier (image url + name)
-- tier title
-
-Where would data change:
-
-- when someone changes title
-- upon drag and drop
-- upon changing tier listname
-- upon adding new tier list
-
-Database schema:
-
-Tiers
------------------------------
-TierID |||| UserID |||| Timestamp ||||| TierData |||| 
-
-
-
-URGENT:
-
-- fix nav bar, fix nav bar, fix nav bar, fix nav bar
-- watch some nav bar vids to get a general idea
-- try grid
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+- retrieve top artists, top songs, top tracks
+- match results that are closest to search
+- what if there are a bunch? how to filter between damn by kendrick lamar and damn by someone else?
+- is there a popularity score? 
+- possible solution: create own popularity score using app usage data
 
 
 
 
 
-- ORGANIZE ALL CODE INTO MODULAR PIECES --> CSS, JS
-- Begin React Project. Once React is comfortable, migrate tierlist to react.
 
-Frontend:
-// expand search result and add "..." to longer ones
-// allow drag and drop into specific place
-// plus sign and minus sign inside divs are not aligned
-// make + and - nondeletable
-// add automatic coloring to new tiers
-// add change color option
+
+
+
+- implement supabase !!!! important
+- work on user profiles
+- install supabase onto react; begin adding articles into supabase
+- implement redis caching
+- install react router and begin routing pages
+- create content wrapper component --> make it either flex center or normal document flow using props
+
+
+
+
+
+
+
+Pages Needed:
+
+- home page
+- album page
+- artist page
+- profile page
+- tier list page
+
+
+
+
+
+
+
+
 
 
 Backend:
@@ -70,12 +58,11 @@ Backend:
 // switch to https calls for production level
 // modularize backend
 
-Figma:
-
-// add save and publish tierlist
 
 
-Features Currently Working On:
+Tier List:
 
-- React Home Page
-- Album Tracks
+- add edit button functionality
+- fix search bug where you close before search results
+- fix bug of overlapping UI's
+- add publish functionality

@@ -1,0 +1,13 @@
+.black-background {
+    position: absolute;
+    background-color: black;
+    width: var(--background-width);
+    height: var(--background-height);
+    opacity: var(--opacity);
+    filter: blur(var(--layer-blur));
+    border-radius: var(--border-radius);
+    left: 50%; 
+    transform: translateX(-50%);
+    margin-top: var(--margin-top);
+    z-index: -1;
+}

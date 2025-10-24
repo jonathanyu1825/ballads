@@ -1,0 +1,13 @@
+p,
+h1 {
+  color: white;
+  z-index: 1;
+  font-family: "Inter", sans-serif;
+}
+
+#article-content {
+    color: white;
+    z-index: 1;
+    font-family: "Inter", sans-serif;
+    padding: 10px 50px;
+}

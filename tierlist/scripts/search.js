@@ -124,7 +124,6 @@ function createTrackElement(type, artist, name, imageURL) {
     addAlbumResults.textContent = "+";
     addButtonHolder.appendChild(addAlbumResults);
   } 
-  console.log(addButtonHolder.children);
 
 
   searchResult.appendChild(trackImage);
@@ -208,7 +207,6 @@ function setupAddElement() {
           let albumTracks = albumMap[albumKey];
           for (let i = 0; i < albumTracks.length; i++) {
             // create elements and add to holder
-            console.log(albumMap);
             musicHolder.appendChild(
               createNewElement(newImage, albumTracks[i])
             );
@@ -224,7 +222,6 @@ function setupAddElement() {
 }
 
 function createNewElement(newElementImage, newElementName) {
-  console.log(newElementName);
   // let newElement = document.createElement("div");
   // newElement.classList.add("music-element");
   // newElement.id = "element-" + elementCount;

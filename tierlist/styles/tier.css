@@ -1,6 +1,8 @@
 /* MAKE + SIGN A CHILD OF ITS CONTAINER */
 
-
+#tier-holder {
+    margin-top: 25px;
+}
 .tier {
     height: 90px;
     border-radius: 13px;

@@ -1,14 +1,13 @@
 #main-page {
     position: relative;
-    top: 25px;
-    height: 100vh;
+    top: 35px;
 }
 
 #main-page-background {
     position: absolute;
     top: 1px;
     height: 100%;
-    width: 96%;
+    width: 76%;
     left: 50%;
     transform: translateX(-50%);
     background-color: black;
@@ -19,7 +18,7 @@
     position: relative;
     top: 1px;
     height: 100%;
-    width: 96%;
+    width: 76%;
     margin: 0 auto 0 auto;
 }
 
@@ -52,8 +51,48 @@
     height: 25px;
     color: white;
     font-size: 13px;
-    left: 150px;
+    left: 170px;
     top: 17px;
+    text-align: center;
+    transition: height 0.2s ease, width 0.2s ease, background-color 0.3s ease, left 0.2s ease;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#publish-list.open-publish-list {
+    left: 100px;
+    height: 400px;
+    width: 440px;
+    border-radius: 20px;
+    opacity: 0.9;
+    background-color: white;
+    font-size: small;
+    display: block;
+}
+
+/* https://github.com/niklasvh/html2canvas */
+/* making the opacity of the child div = 1 */
+/* https://stackoverflow.com/questions/5770341/i-do-not-want-to-inherit-the-child-opacity-from-the-parent-in-css */
+
+.publish-option {
+    border: solid black 2px;
+    border-radius: 15px;
+    height: 25px;
+    width: 120px;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+#publish-nav-bar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 
 #add-title {
@@ -63,7 +102,6 @@
     font-weight: bold;
     letter-spacing: -1px;
     position: absolute;
-
     left: 45%;
 }
 
@@ -178,7 +216,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 /* .added-indicator {
     font-family: "Inter", sans-serif;
     font-size: 11px;
@@ -195,3 +232,8 @@
 
 /* updating stuff */
 
+#edit {
+    float: right;
+    margin-right: 20px;
+    border-radius: 20px;
+}

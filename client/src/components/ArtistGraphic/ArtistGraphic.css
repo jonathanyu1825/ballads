@@ -1,0 +1,21 @@
+.artistGraphic {
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
+    width: 85%;
+    height: 80%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.graphic-holder {
+    position: relative;
+    margin: 2px auto;
+    height: 350px;
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* style={{ position: "relative", margin: "2px auto", height: "250px", width: "1300px", border: "solid red 2px", display: "flex"} */

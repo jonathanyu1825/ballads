@@ -113,4 +113,14 @@ function addNewTier() {
   });
 }
 
-export { setUpMusicDragDrop, setUpTierDragDrop, addNewTier };
+function editResults() {
+  let editButton = document.getElementById("edit");
+  edit.addEventListener("click", () => {
+    let results = document.querySelectorAll(".music-element");
+    for (let i = 0; i < results.length; i++) {
+      // add minus sign
+    }
+  });
+}
+
+export { setUpMusicDragDrop, setUpTierDragDrop, addNewTier, editResults};

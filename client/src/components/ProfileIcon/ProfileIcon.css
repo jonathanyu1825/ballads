@@ -1,0 +1,18 @@
+#login {
+    color: white;
+    z-index: 1;
+    opacity: 75%;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.8px;
+    font-weight: lighter;
+    font-size: 18px;
+    text-shadow: 1px 1px grey;
+    cursor: default;
+    margin-right: 10px;
+}
+
+#login:hover {
+    opacity: 90%;
+    cursor: pointer;
+}
