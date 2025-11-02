@@ -4,4 +4,6 @@
     height: var(--content-height);
     margin: var(--content-margin);
     padding: var(--content-padding);
+    /* border: solid rgb(185, 185, 185) 2px; */
+    border-radius: 25px;
 }

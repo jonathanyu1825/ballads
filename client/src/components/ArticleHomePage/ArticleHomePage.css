@@ -1,0 +1,16 @@
+.article-title {
+    margin-left: 50px;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.article-title:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#article-holder {
+    padding-top: 15px;
+    padding-bottom: 600px;
+}

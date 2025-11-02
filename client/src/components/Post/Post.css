@@ -1,0 +1,42 @@
+.post {
+    color: white;
+    margin-left: 25px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.post-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-profile-image {
+    border-radius: 50px;
+    width: 50px;
+    height: 100%;
+}
+
+.post-details {
+    position: relative;
+    margin-left: 20px;
+}
+
+.post-profile-title {
+    margin-top: 2px;
+}
+
+.post-title {
+    font-size: 21px;
+    font-weight: bolder;
+    margin: 0px 0px 0px 0px;
+}
+
+.post-description {
+    position: relative;
+    font-size: 15px;
+    font-weight: lighter;
+    margin: 10px 0px 0px 0px;
+}

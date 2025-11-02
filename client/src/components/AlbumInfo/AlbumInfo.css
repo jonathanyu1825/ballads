@@ -1,0 +1,169 @@
+.album-info {
+    width: 350px;
+    height: 100%;
+    z-index: 2;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fixed {
+    position: fixed;
+    /* top: 250px; */
+    top: 200px;
+    left: 60px;
+}
+
+.relative {
+    position: relative;
+    left: 52px;
+    top: 12px;
+}
+
+.album-cover {
+    width: 250px;
+    border-radius: 25px;
+    margin-top: 45px;
+}
+
+.album-name {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: light;
+    letter-spacing: -1px;
+}
+
+.album-artist {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: light;
+    letter-spacing: -1px;
+}
+
+.album-reviews {
+    position: relative;
+    left: 80px;
+    top: 13px;
+    height: 2000px;
+    width: 950px;
+}
+
+.album-content-holder {
+    display: flex;
+}
+
+.stick {
+    left: 430px;
+}
+
+.album-date {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.album-songs {
+    width: 80%;
+}
+
+.log-holder {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    align-items: center;
+}
+
+#log-button {
+    margin-right: 50px;
+    margin-top: 20px;
+    height: 30px;
+    width: 80px;
+    background-color: rgb(182, 60, 203);
+    font-family: "Inter", sans-serif;
+    color: white;
+    border-radius: 10px;
+    border: solid rgb(59, 11, 61) 2px;
+}
+
+#my-list-button {
+    margin-right: 30px;
+    margin-top: 20px;
+    height: 30px;
+    width: 80px;
+    background-color: rgb(91, 170, 164);
+    font-family: "Inter", sans-serif;
+    color: white;
+    border-radius: 10px;
+    border: solid rgb(59, 11, 61) 2px;
+    font-size: 14px;
+}
+
+.create-post {
+    color: white;
+    border: solid rgb(88, 88, 88) 2px;
+    width: 86%;
+    margin: 25px auto 40px auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(24, 24, 24);
+}
+
+.create-post-title {
+    font-size: 21px;
+    font-weight: bolder;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    font-family: "Inter", sans-serif;
+    height: 20px;
+}
+
+.create-post-content {
+    position: relative;
+    font-size: 15px;
+    font-weight: lighter;
+    margin: 10px 0px 0px 0px;
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    font-family: "Inter", sans-serif;
+    width: 100%;
+}
+
+.create-post-button {
+    /* background-color: rgb(94, 129, 94); */
+    /* color: white; */
+    border-radius: 3px;
+    border: transparent;
+    height: 20px;
+
+}
+
+.create-post-button-holder {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.create-post-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-post-profile-image {
+    border-radius: 50px;
+    width: 50px;
+    height: 100%;
+}
+
+.create-post-profile-title {
+    margin-top: 2px;
+}

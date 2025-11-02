@@ -138,12 +138,15 @@ export default function HomePage() {
         {/* <p id="subtitle"> your life. your music. </p> */}
         <p id="subtitle"> your life. your music. </p>
         <div id="home-page-buttons">
+          <Link to="/signup">
           <div id="signup">
               <div class="home-page-button" id="sign-up-btn">
                 {" "}
               </div>
               <p id="signup-msg"> Sign up </p>
           </div>
+          </Link>
+          
           <div id="subscribe">
             <div class="home-page-button" id="subscribe-btn">
               {" "}

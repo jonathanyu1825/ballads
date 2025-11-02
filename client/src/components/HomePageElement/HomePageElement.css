@@ -1,0 +1,41 @@
+.home-page-element {
+    margin-top: 10px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.home-page-element:hover {
+    opacity: 0.8;
+    background-color: grey;
+    cursor: pointer;
+}
+
+.element-username {
+    margin: 0px 0px 5px 0px;
+}
+
+.element-name {
+    margin: 5px 0px 0px 0px;
+}
+
+.element-image {
+    border: solid white 2px;
+    border-radius: 25px;
+    width: 128px;
+}
+
+.replace-with-profile {
+    width: 25px;
+    border-radius: 30px;
+}
+
+.element-user {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}

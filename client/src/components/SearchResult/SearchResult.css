@@ -1,0 +1,36 @@
+.search-result-image {
+    width: 70px;
+    height: 70px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.search-result {
+    display: flex;
+    border-radius: 15px;
+    width: 95%;
+    margin-left: 5px;
+}
+
+.search-result:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.search-result-info {
+    margin-left: 20px;
+}
+
+.search-result-title {
+    font-weight: lighter;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.search-result-subtitle {
+    font-weight: lighter;
+    font-size: 15px;
+}

@@ -16,3 +16,12 @@
     opacity: 90%;
     cursor: pointer;
 }
+
+#profile-pic {
+    position: relative;
+    width: 30px;
+    border-radius: 25px;
+    margin: 0px;
+    vertical-align: middle;
+    cursor: pointer;
+}

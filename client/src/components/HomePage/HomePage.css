@@ -73,17 +73,17 @@
 }
 
 .home-page {
-  height: 80%;
+  height: 90%;
   width: 800px;
-  margin-top: -220px;
+  margin-top: 20px;
   position: absolute;
   z-index: 1;
   color: white;
   text-align: center;
-  border: solid red 2px;
 }
 
 #title {
+  font-family: "Inter", sans-serif;
   letter-spacing: -5px;
   font-size: 90px;
   margin-bottom: 0px;
@@ -96,6 +96,7 @@
   letter-spacing: -6px;
   font-weight: 300;
   font-size: 70px;
+  font-family: "Inter", sans-serif;
 }
 
 #logo {
@@ -117,7 +118,6 @@
   z-index: -1;
 }
 
-
 /* MAKE BLUR DISAPPEAR WHEN HOVERING!!!!
 
 /* .home-page-button:hover {
@@ -125,19 +125,22 @@
 } */
 
 #signup {
-    margin-left: 135px;
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 65px;
+  width: 160px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #subscribe {
-    margin-left: 90px;
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-left: 20px;
+  height: 65px;
+  width: 160px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #sign-up-btn {
   background-color: #8c61a1;
@@ -148,17 +151,19 @@
 }
 
 #signup-msg {
-    cursor: default;
-    padding: 0px;
-    margin: 0px;
-    font-size: 25px;
+  cursor: default;
+  padding: 0px;
+  margin: 0px;
+  font-size: 25px;
+  font-family: "Inter", sans-serif;
 }
 
 #subscribe-msg {
-    padding: 0px;
-    margin: 0px;
-    cursor: default;
-    font-size: 25px;
+  padding: 0px;
+  margin: 0px;
+  cursor: default;
+  font-size: 25px;
+  font-family: "Inter", sans-serif;
 }
 
 #home-page-buttons {
@@ -166,5 +171,6 @@
   display: flex;
   height: auto;
   margin-top: 50px;
-  /* justify-content: center; */
+  justify-content: center;
+  gap: 50px;
 }

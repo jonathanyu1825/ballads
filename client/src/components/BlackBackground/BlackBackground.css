@@ -1,9 +1,10 @@
 .black-background {
     position: absolute;
-    background-color: black;
+    background-color: var(--color);
     width: var(--background-width);
     height: var(--background-height);
     opacity: var(--opacity);
+    opacity: 1;
     filter: blur(var(--layer-blur));
     border-radius: var(--border-radius);
     left: 50%; 

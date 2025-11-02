@@ -14,6 +14,8 @@
 }
 
 #signup-title {
+    color: white;
+    font-family: "Inter", sans-serif;
     margin: 20px 0px 0px 0px;
 }
 #signup-hr {
@@ -30,6 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 .third-party-logo {
