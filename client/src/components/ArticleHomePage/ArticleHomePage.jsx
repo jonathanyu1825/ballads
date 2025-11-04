@@ -1,6 +1,7 @@
 import BlackBackground from "../BlackBackground";
 import ContentHolder from "../ContentHolder";
 import "./ArticleHomePage.css";
+import { Link } from "react-router";
 
 export default function ArticleHomePage() {
   return (
@@ -11,13 +12,10 @@ export default function ArticleHomePage() {
       flexCenter={false}
     >
       <BlackBackground />
-      <div id = "article-holder">
-        <p class="article-title"> • 10/29/25 - Welcome to Ballads </p>
-        <p class="article-title"> • 10/29/25 - Welcome to Ballads </p>
-        <p class="article-title"> • 10/29/25 - Welcome to Ballads </p>
-        <p class="article-title"> • 10/29/25 - Welcome to Ballads </p>
-        <p class="article-title"> • 10/29/25 - Welcome to Ballads </p>
-        <p class="article-title"> • 10/29/25 - Welcome to Ballads </p>
+      <div id="article-holder">
+        <Link to="/article-1">
+          <p class="article-title"> • 10/29/25 - Welcome to Ballads </p>
+        </Link>
       </div>
     </ContentHolder>
   );

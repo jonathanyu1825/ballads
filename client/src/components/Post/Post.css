@@ -40,3 +40,11 @@
     font-weight: lighter;
     margin: 10px 0px 0px 0px;
 }
+
+hr {
+    margin: 0px auto 20px auto;
+    width: 95%;
+    background-color: #8C8B8B;
+    border: transparent;
+    height: 1px;
+}

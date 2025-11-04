@@ -13,6 +13,8 @@ import ArticleHomePage from "./components/ArticleHomePage";
 import React, { useState, useEffect } from "react";
 import ProfilePage from "./components/ProfilePage/ProfilePage.jsx";
 
+import ArticlePage from "./components/ArticlePage/ArticlePage.jsx";
+
 export default function App() {
   const [session, setSession] = useState(null);
   const [user, setUser] = useState(null);
@@ -48,6 +50,7 @@ export default function App() {
         <Route path="/search/:query" element={<SearchResultsPage />} />
         <Route path="/articles" element={<ArticleHomePage />} />
         <Route path="/profile/:profile" element={<ProfilePage />} />
+        <Route path ="/article-1" element={<ArticlePage />} />
       </Routes>
     </BrowserRouter>
   );

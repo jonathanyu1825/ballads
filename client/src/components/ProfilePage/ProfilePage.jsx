@@ -12,20 +12,20 @@ export default function ProfilePage() {
       flexCenter={false}
     >
       <BlackBackground layerBlur="7px" borderRadius="2px" />
-      <div class="profile-page-holder">
-        <div>
+      <div className="profile-page-holder">
+        <div className="profile-page-picture-holder">
           <img
-            class="profile-page-picture"
+            className="profile-page-picture"
             src="/pictures/itsbritneybitch.webp"
           />
         </div>
-        <div>
-          <p> kdot </p>
-          <p> makin music like a g</p>
+        <div className="profile-information">
+          <p className="profile-username"> jj </p>
+          <p className="profile-description"> makin music like a g</p>
         </div>
-        <div>
-          <p> 25 films reviewed </p>
-          <p> 450 albums listened </p>
+        <div className="profile-statistics">
+          <p className = "number-albums-reviewed"> 25 albums reviewed </p>
+          <p className="number-tracks-reviewed"> 450 tracks listened </p>
         </div>
       </div>
     </ContentHolder>

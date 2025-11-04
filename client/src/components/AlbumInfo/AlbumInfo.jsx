@@ -16,11 +16,26 @@ export default function AlbumInfo() {
   const [albumScore, setAlbumScore] = useState("");
   const [albumImage, setAlbumImage] = useState("");
   const [albumArtist, setAlbumArtist] = useState("");
+  const [artistGraphic, setArtistGraphic] = useState("");
 
   const [title, setTitle] = useState("");
   const [review, setReview] = useState("");
 
-  const [showLog, setShowLog] = useState(false);
+  const [publishedReviews, setPublishedReviews] = useState([]);
+
+  const [showLog, setShowLog] = useState("");
+
+  const fetchReviews = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("reviews")
+        .select("*")
+        .eq("element_id", elementID);
+      setPublishedReviews(data);
+    } catch {
+      console.log("sup");
+    }
+  };
 
   useEffect(() => {
     const url = `http://localhost:3000/api/get/${elementType}/${encodeURIComponent(
@@ -30,11 +45,9 @@ export default function AlbumInfo() {
     const fetchAlbum = async () => {
       try {
         const response = await fetch(url);
-        console.log("hi")
         const data = await response.json();
 
         console.log(data);
-
         setAlbumImage(data.image);
         setAlbumName(data.name);
         setAlbumScore(data.popularity);
@@ -43,15 +56,19 @@ export default function AlbumInfo() {
         setAlbumDate(data.date);
 
         setAlbumTracks(data.album_tracks);
+        setArtistGraphic(data.artist_graphic);
       } catch {
         console.error("error");
       }
     };
 
     fetchAlbum();
+    fetchReviews();
   }, [elementType, elementID]);
 
-  useEffect(() => {}, [albumImage]);
+  useEffect(() => {
+    console.log(artistGraphic);
+  }, [artistGraphic]);
 
   const [isFixed, setIsFixed] = useState(true);
 
@@ -70,30 +87,28 @@ export default function AlbumInfo() {
   }, []);
 
   async function postReview() {
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-    console.log(user.id);
-    console.log(title);
-    console.log(review);
-    console.log(elementID);
-
-    const { error } = await supabase.from("reviews").insert({ 
+    const { error } = await supabase.from("reviews").insert({
       user_id: user.id,
       review_title: title,
       review_description: review,
-      element_id: elementID
+      element_id: elementID,
     });
 
     if (error) {
       console.log(error);
+    } else {
+      setShowLog("posted");
+      fetchReviews();
     }
-
-    alert("hi");
   }
 
   return (
     <>
-      <ArtistGraphic graphicURL="/videos/oliviarodrigo.mp4" />
+      <ArtistGraphic graphicURL={artistGraphic} />
       <div className="album-content-holder">
         <div className={`album-info ${isFixed ? "fixed" : "relative"}`}>
           <BlackBackground
@@ -106,9 +121,21 @@ export default function AlbumInfo() {
           <h1 className="album-name"> {albumName} </h1>
           <h1 className="album-artist"> {albumArtist} </h1>
           <div className="album-date">
-            <p> {albumDate} </p>
-            <p> {albumScore} </p>
+            <p id="album-release-date"> {albumDate} </p>
+            <p id="popularity-score">
+              {" "}
+              <img className="popularity-score-logo" src="/logo.png" />{" "}
+              {albumScore}%{" "}
+            </p>
           </div>
+          <div className="tracklist-header">
+            <p id="tracklist-header-songs"> Songs </p>
+            <p id="tracklist-header-sort">
+              {" "}
+              <img src="/sortby.png" /> Sort by{" "}
+            </p>
+          </div>
+
           <div className="album-songs">
             {albumTracks.map((track, index) => (
               <p> {index + 1 + ". " + track} </p>
@@ -124,43 +151,75 @@ export default function AlbumInfo() {
             <button
               id="log-button"
               onClick={() => {
-                setShowLog(!showLog);
+                setShowLog((prev) => (prev === "" ? "showLog" : ""));
               }}
             >
               <b> Log + </b>
             </button>
           </div>
-          {showLog ? (
-            <div className="create-post">
-              <div className="create-post-profile">
-                <img
-                  className="create-post-profile-image"
-                  src="/pictures/itsbritneybitch.webp"
-                />
-                <p className="create-post-profile-title">
-                  <b>itsbritneybitch</b>
-                </p>
-              </div>
-              <textarea
-                onChange = {(e) => setTitle(e.target.value)}
-                className="create-post-title"
-                placeholder="create a post"
-              ></textarea>
-              <textarea
-              onChange = {(e) => setReview(e.target.value)}
-                className="create-post-content"
-                placeholder="create a review"
-              ></textarea>
-              <div className="create-post-button-holder">
-                <button onClick = {() => postReview()} className="create-post-button"> Post </button>
-              </div>
-            </div>
-          ) : (
-            <div> </div>
-          )}
 
-          <Post />
-          <Post />
+          {/* render based on states:
+            - idle
+            - show log
+            - posted log
+          */}
+          <div className="create-poste-state-holder">
+            {showLog === "" && <></>}
+
+            {showLog === "showLog" && (
+              <div className="create-post">
+                <div className="create-post-profile">
+                  <img
+                    className="create-post-profile-image"
+                    src="/pictures/itsbritneybitch.webp"
+                  />
+                  <p className="create-post-profile-title">
+                    <b>itsbritneybitch</b>
+                  </p>
+                </div>
+                <textarea
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="create-post-title"
+                  placeholder="create a post"
+                ></textarea>
+                <textarea
+                  onChange={(e) => setReview(e.target.value)}
+                  className="create-post-content"
+                  placeholder="create a review"
+                ></textarea>
+                <div className="create-post-button-holder">
+                  <button
+                    onClick={() => postReview()}
+                    className="create-post-button"
+                  >
+                    {" "}
+                    Post{" "}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {showLog === "posted" && (
+              <div className="create-post">
+                <div className="create-post-profile">
+                  <img
+                    className="create-post-profile-image"
+                    src="/pictures/itsbritneybitch.webp"
+                  />
+                  <p className="create-post-profile-title">
+                    <b>itsbritneybitch</b>
+                  </p>
+                </div>
+                <h1> success </h1>
+              </div>
+            )}
+          </div>
+          {publishedReviews.map((publishedReview) => (
+            <Post
+              title={publishedReview.review_title}
+              description={publishedReview.review_description}
+            />
+          ))}
         </div>
       </div>
     </>

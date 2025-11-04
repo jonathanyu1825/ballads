@@ -58,6 +58,7 @@ export default function NavBar({ user }) {
                 />
                 <p> password: </p>
                 <input
+                  type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   className="login-field"
                   id="login-password"
@@ -105,7 +106,9 @@ export default function NavBar({ user }) {
                               <p> profile </p>
                             </div>
                           </Link>
-                          <div className="profile-option">
+                          <div
+                            className="profile-option"
+                          >
                             <div className="nav-image-holder">
                               <img
                                 id="profile-image"
@@ -114,7 +117,7 @@ export default function NavBar({ user }) {
                             </div>
                             <p> settings </p>
                           </div>
-                          <div className="profile-option">
+                          <div onClick={handleLogout} className="profile-option">
                             <p> Logout </p>
                           </div>
                         </div>

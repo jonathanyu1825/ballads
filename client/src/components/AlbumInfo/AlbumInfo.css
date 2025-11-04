@@ -167,3 +167,46 @@
 .create-post-profile-title {
     margin-top: 2px;
 }
+
+.successful-post {
+    border: solid red 2px;
+    color: white;
+}
+
+.popularity-score-logo {
+    width: 30px;
+    margin: -4px 0px 0px 0px;
+    vertical-align: middle;
+}
+
+#popularity-score {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+#album-release-date {
+    font-size: 20px;
+}
+
+.tracklist-header {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px 0px 0px;
+    width: 80%;
+    justify-content: space-between;
+}
+
+#tracklist-header-songs {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+/* #tracklist-header-sort {
+    
+} */
+
+#tracklist-header-sort img {
+    width: 28px;
+    vertical-align: middle;
+    margin-top: -3px;
+}

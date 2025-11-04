@@ -8,6 +8,18 @@
     overflow: hidden;
 }
 
+.artist-graphic-image {
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
+    width: 91%;
+    height: 80%;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0.6;
+    object-position: 50% 40%;
+}
+
 .graphic-holder {
     position: relative;
     margin: 2px auto;

@@ -149,7 +149,6 @@ async function searchSpotify(query) {
 
 async function getElement(elementID, elementType) {
   await updateToken();
-
   const url = `https://api.spotify.com/v1/${elementType}/${elementID}`;
   try {
     const response = await axios.get(url, {
@@ -157,6 +156,7 @@ async function getElement(elementID, elementType) {
         Authorization: `Bearer ${accessToken}`,
       },
     });
+    console.log(response.data);
     return response.data;
     const trackData = response.data.tracks.items;
     let trackList = [];
@@ -190,9 +190,25 @@ async function getAlbumTracks(albumID) {
     console.error(`Error fetching album:`, error);
   }
 }
-app.get("/api/get/:elementType/:elementID", async (req, res) => {
-  
 
+async function getArtistGraphic(albumID) {
+  await updateToken();
+  const url = `https://api.spotify.com/v1/artists/${albumID}`;
+
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    console.log(response);
+    return response.data.images[0].url;
+  } catch (error) {
+    console.error(`Error fetching artist graphic: `, error)
+  }
+}
+app.get("/api/get/:elementType/:elementID", async (req, res) => {
   const elementID = req.params.elementID;
 
   const cachedResult = await client.get(elementID);
@@ -204,6 +220,7 @@ app.get("/api/get/:elementType/:elementID", async (req, res) => {
   const result = await getElement(elementID, elementType);
 
   if (elementType == "albums") {
+    let artistGraphic = await getArtistGraphic(result.artists[0].id);
     let albumObject = {
       name: result.name,
       popularity: result.popularity,
@@ -211,13 +228,14 @@ app.get("/api/get/:elementType/:elementID", async (req, res) => {
       image: result.images[0].url,
       date: result.release_date,
       album_tracks: result.tracks.items.map((trackInfo) => trackInfo.name),
+      artist_graphic: artistGraphic
     };
 
     // redis call
     await client.set(elementID, JSON.stringify(albumObject));
-    console.log("success");
     res.json(albumObject);
   } else if (elementType == "tracks") {
+    let artistGraphic = await getArtistGraphic(result.artists[0].id);
     let albumTracks = await getAlbumTracks(result.album.id);
     let trackObject = {
       name: result.name,
@@ -226,6 +244,7 @@ app.get("/api/get/:elementType/:elementID", async (req, res) => {
       image: result.album?.images?.[0]?.url,
       date: result.album.release_date,
       album_tracks: albumTracks,
+      artist_graphic: artistGraphic
     };
     await client.set(elementID, JSON.stringify(trackObject));
     res.json(trackObject);
@@ -237,48 +256,11 @@ app.get("/api/get/:elementType/:elementID", async (req, res) => {
       image: result.images?.[0].url,
       date: "",
       album_tracks: [],
+      artist_graphic: result.images?.[0].url
     };
     await client.set(elementID, JSON.stringify(artistObject));
     res.json(artistObject);
   }
-
-  // if (elementType == "albums") {
-  //   results.forEach((albumResult) => {
-  //     albumResults.push(
-  //       {
-  //         "name": albumResult.name,
-  //         "popularity": albumResult.popularity,
-  //         "artists": albumResult.artists.map(artist => artist.name).join(", "),
-  //         "image": albumResult.images[0].url,
-  //         "date": albumResult.release_date,
-  //         "album_tracks": data.tracks.items.map((trackInfo) => trackInfo.name));
-  //       }
-  //     )
-  //   })
-
-  // } else if (elementType == "tracks") {
-  //   trackResults = [];
-  //   results.forEach((trackResult) => {
-  //     trackResults.push(
-  //       {
-  //         "name": trackResult.name,
-  //         "popularity": trackResult.popularity,
-  //         "artists": trackResult.artists.map(artist => artist.name).join(", "),
-  //         "image": trackResult.images[0].url,
-  //         "date": trackResult.release_date,
-  //         "album_tracks": getAlbumTracks(trackResult.album.id)
-
-  //       }
-  //     )
-  //   })
-
-  // } else if (elementType == "artists") {
-
-  // }
-
-  // album --> album name, album artist, album popularity, album date, album tracklist, album image
-  // track --> track name, track artist, track popularity, track date, track album tracklist, track image
-  // res.json(result);
 });
 
 app.listen(PORT, () => {

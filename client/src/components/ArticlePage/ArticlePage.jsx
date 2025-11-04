@@ -1,5 +1,5 @@
 import BlackBackground from "../BlackBackground";
-import './ArticlePage.css';
+import "./ArticlePage.css";
 import ContentHolder from "../ContentHolder";
 export default function Article() {
   return (
@@ -12,11 +12,21 @@ export default function Article() {
           marginTop="1px"
         />
       </div> */}
-      <ContentHolder width = "60%" height = "100%" margin = "25px auto" flexCenter = {false}>
-        <BlackBackground width = "100%" height = "105%" opacity = "0.8" layerBlur="4px"/>
-        <div id = "article-content">
-        <h1> October 18th - 9:15 PM </h1>
-        <p>
+      <ContentHolder
+        width="60%"
+        height="100%"
+        margin="25px auto"
+        flexCenter={false}
+      >
+        <BlackBackground
+          width="100%"
+          height="105%"
+          opacity="0.8"
+          layerBlur="4px"
+        />
+        <div id="article-content">
+          <h1> October 18th - 9:15 PM </h1>
+          {/* <p>
           Welcome to Ballads. This is a site I’m making partly as a side thing, 
           partly because I was watching a ton of NFR podcast for a good 2 months, 
           and I realized there was no Letterboxd equivalent for music.
@@ -65,8 +75,46 @@ export default function Article() {
           <br />
           http://bit.ly/3J3DrtZ
           
-        </p>
-      </div>
+        </p> */}
+
+          <p>
+            Welcome to ballads.live. It's ballads.live and not ballads.com
+            because I there's no way I'm spending two thousand dollars on a
+            domain name that I'll probably end up switching anyways. 
+            
+            <br /> <br />
+            Ballads is
+            a personal project I'm making for two reasons. For one, I think it'd
+            be cool to be able to track the albums you listen to. Most people
+            really don't care about this. 
+            
+            After all, music's greatest gift is
+            that you can sit in traffic on the I-95 and not be bored out of your
+            mind because the song playing on the radio is really good. But there
+            are actually a niche group of people who do enjoy listening to full
+            length albums and want to be able to keep track of the stuff they
+            listened to. Personally, I enjoy being able to remember the albums I
+            listened to because I can look back 3 years and see the type of
+            stuff I liked back then. It's also a personal project in a very
+            niche space, so it'll be more of a cool thing as opposed to
+            something that I'll stick ads on. 
+            
+            <br /> <br />
+            
+            Two, I always wanted to learn how
+            the tech stack on an app like Letterboxd worked, and this is
+            essentially my way of doing that. I plan on using React for the
+            frontend, Express and Node for the backend, Postgre for the
+            database, Redis for caching, and Supabase for authentication. I'll
+            also use Digital Ocean for the server hosting because I'm not trying
+            to accidentally rack up a thousand dollar bill on AWS. 
+            
+            <br /> <br />
+            So yeah...if
+            you listen to an album and want to share your thoughts in some shape
+            or form, go ahead and give it a try.
+          </p>
+        </div>
       </ContentHolder>
     </>
   );
