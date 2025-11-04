@@ -5,8 +5,6 @@ import "./SearchResultsPage.css";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 
-// https://chatgpt.com/c/69054bbe-d2e0-8333-ab74-6ff52300ff78
-
 export default function SearchResultsPage() {
   const { query } = useParams();
 
