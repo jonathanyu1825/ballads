@@ -38,9 +38,12 @@ export default function AlbumInfo() {
   };
 
   useEffect(() => {
-    const url = `http://localhost:3000/api/get/${elementType}/${encodeURIComponent(
+    const url = `https://api.ballads.live/api/get/${elementType}/${encodeURIComponent(
       elementID
     )}`;
+    // const url = `http://localhost:3000/api/get/${elementType}/${encodeURIComponent(
+    //   elementID
+    // )}`;
 
     const fetchAlbum = async () => {
       try {

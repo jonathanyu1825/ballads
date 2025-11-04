@@ -23,10 +23,10 @@ export default function SearchResultsPage() {
   };
 
   async function performSearch(query) {
-    // const url = `https://api.ballads.live/api/search/${encodeURIComponent(
-    //   query
-    // )}`;
-    const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
+    const url = `https://api.ballads.live/api/search/${encodeURIComponent(
+      query
+    )}`;
+    // const url = `http://localhost:3000/api/search/${encodeURIComponent(query)}`;
     try {
       const response = await fetch(url);
       if (!response.ok) {

@@ -175,6 +175,8 @@ app.get("/api/search/:query", async (req, res) => {
   res.json(results);
 });
 
+
+
 async function getAlbumTracks(albumID) {
   await updateToken();
   const url = `https://api.spotify.com/v1/albums/${albumID}`;
