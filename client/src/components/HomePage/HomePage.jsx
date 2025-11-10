@@ -131,9 +131,8 @@ export default function HomePage() {
 
       <div class="home-page">
         <h1 id="title">
-          {" "}
           <img id="logo" src="/logo.png" />
-          Ballads{" "}
+          Ballads
         </h1>
         {/* <p id="subtitle"> your life. your music. </p> */}
         <p id="subtitle"> your life. your music. </p>

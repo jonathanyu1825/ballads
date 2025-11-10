@@ -19,7 +19,9 @@
 
 #profile-pic {
     position: relative;
-    width: 30px;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
     border-radius: 25px;
     margin: 0px;
     vertical-align: middle;

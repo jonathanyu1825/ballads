@@ -57,60 +57,6 @@ export default function SearchResultsPage() {
     });
   }, [query]);
 
-  // function parseAlbums(albums) {
-  //   let parsedAlbums = [];
-  //   albums.forEach((album) => {
-  //     parsedAlbums.push({
-  //       id: album.id,
-  //       image: album.images[0].url,
-  //       name: album.name,
-  //       subtitle: parseAlbumArtists(album.artists),
-  //     });
-  //   });
-  //   return parsedAlbums;
-  // }
-
-  // function parseAlbumArtists(albumArtists) {
-  //   let res = [];
-  //   albumArtists.forEach((artist) => {
-  //     res.push(artist.name);
-  //   });
-  //   return res.join(", ");
-  // }
-  // function parseTracks(tracks) {
-  //   let parsedTracks = [];
-  //   tracks.forEach((track) => {
-  //     parsedTracks.push({
-  //       id: track.id,
-  //       image: track.album.images[0].url,
-  //       name: track.name,
-  //       subtitle: parseAlbumArtists(track.artists)
-  //     });
-  //   });
-  //   return parsedTracks;
-  // }
-  // function parseArtists(artists) {
-  //   let parsedArtists = [];
-  //   artists.forEach((artist) => {
-  //     parsedArtists.push({
-  //       id: artist.id,
-  //       image: artist.images?.[0]?.url,
-  //       name: artist.name,
-  //       subtitle: parseArtistType(artist.genres)
-  //     });
-  //   });
-  //   return parsedArtists;
-  // }
-
-  // function parseArtistType(artistGenres) {
-  //   let genres = artistGenres.join(", ");
-  //   if (genres != "") {
-  //     return "artist ○ " + artistGenres.join(", ");
-  //   }
-  //   return "artist";
-    
-  // }
-
   useEffect(() => {
     console.log(artistResults);
   });
@@ -169,6 +115,12 @@ export default function SearchResultsPage() {
             onClick={() => updateDisplayedResults(artistResults, "artists")}
           >
             <h1 class="result-type">Artist</h1>
+          </div>
+          <div
+            class="show-results-holder"
+            onClick={() => updateDisplayedResults(artistResults, "artists")}
+          >
+            <h1 class="result-type">Users</h1>
           </div>
         </ContentHolder>
       </div>

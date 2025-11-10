@@ -33,6 +33,8 @@
     font-size: 20px;
     font-weight: light;
     letter-spacing: -1px;
+    text-align: center;
+    padding: 0px 5px;
 }
 
 .album-artist {
@@ -209,4 +211,17 @@
     width: 28px;
     vertical-align: middle;
     margin-top: -3px;
+}
+
+.track-link:hover {
+    text-decoration: underline;
+}
+
+.track-link.active {
+    color: rgb(110, 110, 146);
+}
+
+.track-link.active:hover {
+    cursor: default;
+    text-decoration: none;
 }

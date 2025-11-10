@@ -10,7 +10,7 @@ export default function Post({ title, description }) {
             src="/pictures/itsbritneybitch.webp"
           />
           <p className="post-profile-title">
-            <b>itsbritneybitch</b>
+            <b>britneyspears</b>
           </p>
         </div>
         <div className="post-details">

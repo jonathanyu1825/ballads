@@ -2,7 +2,7 @@ import "./ProfileIcon.css";
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 
-export default function ProfileIcon({ user, onClick }) {
+export default function ProfileIcon({ user, onClick, profileImage }) {
   // const [user, setUser] = useState(null);
 
   // useEffect(() => {
@@ -27,7 +27,7 @@ export default function ProfileIcon({ user, onClick }) {
   return (
     <div onClick = {onClick}>
       {user ? (
-        <img id="profile-pic" src="/pictures/bad.png" />
+        <img id="profile-pic" src={profileImage} />
       ) : (
         <div id="login"> login </div>
       )}

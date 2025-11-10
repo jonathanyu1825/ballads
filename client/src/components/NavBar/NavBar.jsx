@@ -13,12 +13,14 @@ export default function NavBar({ user }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showProfile, setShowProfile] = useState(false);
+  const [profileImage, setProfileImage] = useState("");
 
   const handleSubmit = async () => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email: username,
       password,
     });
+    // setProfileImage(data.user.user_metadata.avatar_url);
   };
 
   const handleLogout = async () => {
@@ -82,6 +84,7 @@ export default function NavBar({ user }) {
                   <div className="profile-div">
                     <ProfileIcon
                       user={user}
+                      profileImage = {profileImage}
                       onClick={() => {
                         setShowProfile(!showProfile);
                       }}

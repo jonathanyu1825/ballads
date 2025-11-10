@@ -12,7 +12,7 @@ import AlbumInfo from "./components/AlbumInfo";
 import ArticleHomePage from "./components/ArticleHomePage";
 import React, { useState, useEffect } from "react";
 import ProfilePage from "./components/ProfilePage/ProfilePage.jsx";
-
+import ListPage from "./components/ListPage";
 import ArticlePage from "./components/ArticlePage/ArticlePage.jsx";
 
 export default function App() {
@@ -51,6 +51,7 @@ export default function App() {
         <Route path="/articles" element={<ArticleHomePage />} />
         <Route path="/profile/:profile" element={<ProfilePage />} />
         <Route path ="/article-1" element={<ArticlePage />} />
+        <Route path="/lists" element={<ListPage />} />
       </Routes>
     </BrowserRouter>
   );

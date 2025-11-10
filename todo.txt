@@ -1,10 +1,11 @@
-Before interview:
+- setup react context !!!!!!
+- figure out how react context works
 
-- create album backgrounds programatically
-- remove "all" selection from search
-- clean up create home page
-- clean up article page and add an article
 
+what do we need in context?
+
+- username
+- profile image
 
 original tier list code
 

@@ -24,20 +24,17 @@ export default function HomePageUser({ user }) {
       />
       <div id="home-page-welcome">
         <h1 class="welcome-message">
-          {" "}
-          welcome back <b>{username}</b>! here's what's been up in music.{" "}
+          welcome back <b>{username}</b>! here's what's been up in music.
         </h1>
       </div>
       <h1 class="home-page-title"> Your Friends Reviewed </h1>
       <div class="home-page-elements">
         <HomePageElement imageURL="/pictures/chanelorange.jpg">
-          {" "}
         </HomePageElement>
         <HomePageElement imageURL="/pictures/abbeyroad.jpg"> </HomePageElement>
         <HomePageElement imageURL="/pictures/bad.png"> </HomePageElement>
         <HomePageElement imageURL="/pictures/ballads1.png"> </HomePageElement>
         <HomePageElement imageURL="/pictures/darksideofthemoon.png">
-          {" "}
         </HomePageElement>
         <HomePageElement imageURL="/pictures/dawnfm.png"> </HomePageElement>
         <HomePageElement imageURL="/pictures/eminem.jpeg"> </HomePageElement>

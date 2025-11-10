@@ -1,0 +1,65 @@
+#intro-message {
+    font-size: 25px;
+    font-weight: lighter;
+    margin: 0px;
+}
+
+.hp-holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* #friends-reviewed {
+    border: solid red 2px;
+} */
+
+.hp-title {
+    margin: 0px;
+    font-size: 30px;
+    letter-spacing: -2px;
+    font-weight: lighter;
+    margin-top: 25px;
+}
+
+#hp-featured-album {
+    text-align: center;
+}
+
+#your-friends-reviewed {
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+
+.hp-element-holder {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.hp-article-picture {
+    border-radius: 15px;
+    margin-top: 50px;
+    width: 250px;
+    border: solid gold 2px;
+}
+
+.hp-article-content {
+    margin: 30px 0px 0px 50px;
+    width: 80%;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.show-more {
+    margin: 0px;
+    margin-bottom: 50px;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    line-height: 1.5;
+}

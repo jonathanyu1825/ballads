@@ -7,6 +7,7 @@ import Post from "../Post";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { supabase } from "../../supabaseClient.js";
+import { Link } from "react-router";
 
 export default function AlbumInfo() {
   const { elementType, elementID } = useParams();
@@ -70,8 +71,8 @@ export default function AlbumInfo() {
   }, [elementType, elementID]);
 
   useEffect(() => {
-    console.log(artistGraphic);
-  }, [artistGraphic]);
+    console.log(albumTracks);
+  }, [albumTracks]);
 
   const [isFixed, setIsFixed] = useState(true);
 
@@ -141,7 +142,15 @@ export default function AlbumInfo() {
 
           <div className="album-songs">
             {albumTracks.map((track, index) => (
-              <p> {index + 1 + ". " + track} </p>
+              <Link to={`/tracks/${track[1]}`}>
+                <b>
+                  {" "}
+                  <p className= {`track-link ${track[1] === elementID ? "active" : ""}`}>
+                    {" "}
+                    {index + 1 + ". " + track[0]}{" "}
+                  </p>{" "}
+                </b>
+              </Link>
             ))}
           </div>
         </div>
@@ -177,7 +186,7 @@ export default function AlbumInfo() {
                     src="/pictures/itsbritneybitch.webp"
                   />
                   <p className="create-post-profile-title">
-                    <b>itsbritneybitch</b>
+                    <b>britneyspears</b>
                   </p>
                 </div>
                 <textarea
@@ -210,7 +219,7 @@ export default function AlbumInfo() {
                     src="/pictures/itsbritneybitch.webp"
                   />
                   <p className="create-post-profile-title">
-                    <b>itsbritneybitch</b>
+                    <b>britneyspears</b>
                   </p>
                 </div>
                 <h1> success </h1>

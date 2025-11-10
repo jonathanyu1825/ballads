@@ -156,7 +156,6 @@ async function getElement(elementID, elementType) {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    console.log(response.data);
     return response.data;
     const trackData = response.data.tracks.items;
     let trackList = [];
@@ -187,7 +186,8 @@ async function getAlbumTracks(albumID) {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    return response.data.tracks.items.map((trackInfo) => trackInfo.name);
+    console.log(response.data.tracks.items);
+    return response.data.tracks.items.map((trackInfo) => [trackInfo.name, trackInfo.id]);
   } catch (error) {
     console.error(`Error fetching album:`, error);
   }
@@ -203,8 +203,6 @@ async function getArtistGraphic(albumID) {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
-    console.log(response);
     return response.data.images[0].url;
   } catch (error) {
     console.error(`Error fetching artist graphic: `, error)
@@ -222,6 +220,7 @@ app.get("/api/get/:elementType/:elementID", async (req, res) => {
   const result = await getElement(elementID, elementType);
 
   if (elementType == "albums") {
+    console.log(result.tracks);
     let artistGraphic = await getArtistGraphic(result.artists[0].id);
     let albumObject = {
       name: result.name,
@@ -229,7 +228,7 @@ app.get("/api/get/:elementType/:elementID", async (req, res) => {
       artists: result.artists.map((artist) => artist.name).join(", "),
       image: result.images[0].url,
       date: result.release_date,
-      album_tracks: result.tracks.items.map((trackInfo) => trackInfo.name),
+      album_tracks: result.tracks.items.map((trackInfo) => [trackInfo.name, trackInfo.id]),
       artist_graphic: artistGraphic
     };
 
