@@ -28,6 +28,8 @@ const clientSecret = "8c915fb2b394463aacda06509bfa04f5";
 let accessToken = null;
 let expirationDate = 0;
 
+console.log("connected");
+
 async function getSpotifyToken(clientID, clientSecret) {
   try {
     const response = await axios.post(
