@@ -44,7 +44,7 @@ export default function AlbumInfo() {
     )}`;
     // const url = `http://localhost:3000/api/get/${elementType}/${encodeURIComponent(
     //   elementID
-    // )}`;
+    // )}`; s
 
     const fetchAlbum = async () => {
       try {
